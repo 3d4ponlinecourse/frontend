@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProvider'
-import { FiBox} from "react-icons/fi";
+import { FiBox } from "react-icons/fi";
 
 const Navbar = () => {
   const { isLoggedIn, logout } = useAuth()
+
 
   return (
     <nav className=' w-full border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700'>
     <div className="flex flex-wrap items-center justify-between  p-4">
       <Link to={'/'} className="flex items-center">
-      <span className="flex text-blue-500 items-center gap-x-2"><FiBox/>3D4P </span>
+      <span className="flex text-blue-500 items-center gap-x-2"><FiBox/>3D4P</span>
       </Link>
    
       <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-transparent 
