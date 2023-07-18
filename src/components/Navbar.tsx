@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProvider'
-import { FiBox} from "react-icons/fi";
+import { FiBox } from "react-icons/fi";
 
 const Navbar = () => {
   const { isLoggedIn, logout } = useAuth()
