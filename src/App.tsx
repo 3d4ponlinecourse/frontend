@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar"
 import GuardedRoute from "./guards/GuardedRoute"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
-import { Profile } from "./pages/Profile"
+import { Profile } from "./pages/ProFile/Profile"
 
 
 function App() {
