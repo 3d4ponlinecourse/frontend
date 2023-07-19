@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom"
-import { useAuth } from "../providers/AuthProvider";
+import { useAuth } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
 
 
@@ -11,7 +11,7 @@ const Courselist = () => {
   return (
     
     <div>
-        <div className="text-left">
+        <div className="">
 
         <h1 className="font-bold text-4xl indent-2">Course List</h1>
         <p className="text-xl indent-2">Let's Explore your new study</p>

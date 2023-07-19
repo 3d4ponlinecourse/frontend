@@ -3,9 +3,10 @@ import './App.css'
 import { useAuth } from "./providers/AuthProvider"
 import Navbar from "./components/Navbar"
 import GuardedRoute from "./guards/GuardedRoute"
-import Login from "./pages/Login"
-import Register from "./pages/Register"
-import Courselist from "./pages/Courselist"
+import Login from "./pages/user/Login"
+import Register from "./pages/user/Register"
+import Courselist from "./pages/user/Courselist"
+import Editprofile from "./components/Editprofile"
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
            <Route path="/courselist" element={<Courselist/>} />
+           <Route path="/editprofile" element={<Editprofile/>} />
         </Route>  
         
    </Routes>
