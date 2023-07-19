@@ -1,6 +1,6 @@
 import React from 'react'
-import LastedCourse from '../../components/Profile/LastedCourse'
-import ResetPassword from '../../components/Profile/ResetPassword'
+import LastedCourse from './../components/Profile/LastedCourse'
+import ResetPassword from './../components/Profile/ResetPassword'
 
 
 export const Profile = () => {
