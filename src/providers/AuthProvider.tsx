@@ -4,6 +4,8 @@ interface IAuthContext {
     isLoggedIn: boolean
     username: string | null
     login: (username: string, password: string) => Promise<void>
+    register: (email: string, username: string, firstname: string,
+      lastname: string, password: string, conpassword: string, gender:any, role:any) => Promise<void>
     logout: () => void
   }
   
@@ -48,7 +50,30 @@ interface IAuthContext {
         throw new Error(err.message)
       }
     }
-  
+   
+  const register = async (email: string, username: string, firstname: string,
+    lastname: string, password: string, conpassword: string, gender: string) => {
+     const registerBody = { email, username, firstname, lastname, password, conpassword, gender}
+
+     try {
+      const res = await fetch('https://api.learnhub.thanayut.in.th/auth/me', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(registerBody),
+      })
+      const data = await res.json()
+
+      if (data.statusCode && data.statusCode !== 201) {
+        throw new Error(data.message)
+      }
+    } catch (err: any) {
+      throw new Error(err.message)
+    }
+  }
+
+
+   
+
     const logout = () => {
       localStorage.removeItem('token')
       localStorage.removeItem('user')
@@ -56,7 +81,7 @@ interface IAuthContext {
       setUsername(null)
     }
   
-    return <AuthContext.Provider value={{ isLoggedIn, login, logout, username }}>{children}</AuthContext.Provider>
+    return <AuthContext.Provider value={{ isLoggedIn, login, logout, username, register }}>{children}</AuthContext.Provider>
   }
   
   export default AuthProvider

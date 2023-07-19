@@ -8,6 +8,7 @@ import Register from "./pages/Register"
 import { Profile } from "./pages/Profile"
 
 
+
 function App() {
   const { isLoggedIn } = useAuth()
 
@@ -18,13 +19,9 @@ function App() {
     <Routes>
         <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
           <Route path="/login" element={<Login />} />
-        </Route>
-        <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
           <Route path="/register" element={<Register />} />
         </Route>
-        <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
-          <Route path="/profile" element={<Profile />} />
-        </Route>
+        <Route path="/profile" element={<Profile />} />
    </Routes>
    </>
   )
