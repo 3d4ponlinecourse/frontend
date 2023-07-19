@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import React from 'react'
 import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
 import { BsDiscord } from 'react-icons/bs'
-import angleToRaidian from '../utility/angleToRaidian'
+
 
 const Model =(props:any):any=>{
     const {scene}=useGLTF("/Benz.glb")
@@ -33,7 +33,7 @@ const Hero = () => {
             <PerspectiveCamera makeDefault  zoom={1.7} position={[0,1,5]}  fov={50}/>
         <color attach="background" args={["#2d2d30"]}/>
         <PresentationControls speed={1.5} global zoom={0.7} polar={[-0.1,Math.PI/4]}>
-            <Stage preset={'soft'} shadows>
+            <Stage preset={'soft'} environment={'city'} shadows>
                 {/* <mesh rotation={[angleToRaidian(-90),0,0]}>
                     <planeGeometry args={[1,1]}/>
                     <meshStandardMaterial/>

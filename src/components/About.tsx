@@ -6,7 +6,7 @@ const About = () => {
     <><div className=" px-64 py-32 flex flex-row  gap-32 bg-zinc-900">
     <div className="flex flex-col justify-between">
       <div className="flex flex-col flex-wrap gap-8">
-        <h2 className="font-bold text-4xl text-teal-400">Meet Master Wave</h2>
+        <h2 className="font-bold text-4xl text-teal-400">Meet Jacob Larzuri</h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
           dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex

@@ -13,16 +13,18 @@ import { Profile } from "./pages/Profile"
 function App() {
   const { isLoggedIn } = useAuth()
 
+
   return (
-    <div className=" font-Anuphan bg-zinc-800 min-h-screen text-zinc-200">
-      <Navbar />
-      <Routes>
-        <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-        </Route>
-      </Routes>
-      <Home />
+    <div>
+    <Navbar/>
+    <Home/>
+    <Routes>
+      <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Route>
+      <Route path="/profile" element={<Profile />} />
+    </Routes>
     </div>
   )
 }
