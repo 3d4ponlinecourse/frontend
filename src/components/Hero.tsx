@@ -29,8 +29,8 @@ const Hero = () => {
 
       <div className="bg-zinc-700 w-2/3 min-h-full">
         <Canvas dpr={[1,2]} shadows>
-            <PerspectiveCamera makeDefault  zoom={2} position={[0,1,5]} fov={80}/>
-        <color attach="background" args={["#27272A"]}/>
+            <PerspectiveCamera makeDefault  zoom={1.7} position={[0,1,5]} rotat fov={50}/>
+        <color attach="background" args={["#2d2d30"]}/>
         <PresentationControls speed={1.5} global zoom={0.7} polar={[-0.1,Math.PI/4]}>
             <Stage preset={'soft'} shadows>
                 {/* <mesh rotation={[angleToRaidian(-90),0,0]}>
