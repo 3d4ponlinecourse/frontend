@@ -17,11 +17,11 @@ const LastedCourse = () => {
 
   return (
     <div className=''>
-      <div className='flex justify-between items-center'>
+      <div className='flex justify-between items-center p-1'>
         <p className='text-3xl font-bold'>Lasted Courses</p>
         <p className='text-s font-medium'>SEE ALL</p>
       </div>
-      <div className='p-3 m-5 border border-black rounded-3xl'>
+      <div className='p-5 m-5 border border-black rounded-3xl'>
         <div className='grid grid-cols-6 grid-rows-1 gap-4'>
           <div className='flex flex-col col-start-1 col-span-3 ... p-2 '>
             <h4 className='flex justify-start'>Course</h4>
@@ -59,7 +59,7 @@ const LastedCourse = () => {
           </div>  
         </div>
       </div>
-      <div className='p-3 m-5 bg-slate-500 rounded-3xl'>
+      <div className='p-5 m-5 bg-slate-500 rounded-3xl'>
         <div className='grid grid-cols-6 grid-rows-1 gap-4'>
           <div className='flex flex-col col-start-1 col-span-3 ... p-2 bg-orange-600'>
             <h4 className='flex justify-start'>Course</h4>
