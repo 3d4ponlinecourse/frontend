@@ -17,6 +17,7 @@ const Hero = () => {
         <h1 className=" text-7xl font-bold  leading-tight ">
           Begin Your <span className="text-teal-400">3D Modeling Course</span> For Free.
         </h1>
+
         <div>
           <button className="button-3d4p">Enroll this course</button>
           <div className="text-2xl flex flex-row justify-between p-8">
@@ -29,7 +30,7 @@ const Hero = () => {
 
       <div className="bg-zinc-700 w-2/3 min-h-full">
         <Canvas dpr={[1,2]} shadows>
-            <PerspectiveCamera makeDefault  zoom={1.7} position={[0,1,5]} rotat fov={50}/>
+            <PerspectiveCamera makeDefault  zoom={1.7} position={[0,1,5]}  fov={50}/>
         <color attach="background" args={["#2d2d30"]}/>
         <PresentationControls speed={1.5} global zoom={0.7} polar={[-0.1,Math.PI/4]}>
             <Stage preset={'soft'} shadows>
