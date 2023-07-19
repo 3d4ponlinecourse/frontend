@@ -1,6 +1,6 @@
 import React from 'react'
-import LastedCourse from '../../components/Profile/LastedCourse'
-import ResetPassword from '../../components/Profile/ResetPassword'
+import LastedCourse from '../components/Profile/LastedCourse'
+import ResetPassword from '../components/Profile/ResetPassword'
 
 
 export const Profile = () => {
@@ -25,9 +25,9 @@ export const Profile = () => {
             </div>
         </div>
         <div className='w-full'>
-            <div>
+            {/* <div>
                 <LastedCourse />
-            </div>
+            </div> */}
             <div className='w-1/2'>
                 <ResetPassword />
             </div>

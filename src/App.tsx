@@ -17,13 +17,13 @@ function App() {
   return (
     <div>
     <Navbar/>
-    <Home/>
     <Routes>
       <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Route>
       <Route path="/profile" element={<Profile />} />
+      <Route path="/home" element={<Home /> } />
     </Routes>
     </div>
   )
