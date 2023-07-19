@@ -1,11 +1,11 @@
 import React from 'react'
 import LastedCourse from '../../components/Profile/LastedCourse'
-import Activity from '../../components/Profile/Activity'
+import ResetPassword from '../../components/Profile/ResetPassword'
 
 
 export const Profile = () => {
   return (
-    <div className='flex flex-nowrap justify-between px-8 m-5 gap-5'>
+    <div className='flex items-start w-full px-8 m-5 gap-8'>
         <div className='justify-center border border-black grid gap-y-16 rounded-3xl py-8 w-4/12'>
             <div>
                 <div className='flex-col text-4xl grid gap-y-5 '>
@@ -24,9 +24,13 @@ export const Profile = () => {
                 </div>
             </div>
         </div>
-        <div className='border border-black rounded-3xl p-1'>
-            <LastedCourse />
-            {/* <Activity /> */}
+        <div className='w-full'>
+            <div>
+                <LastedCourse />
+            </div>
+            <div className='w-1/2'>
+                <ResetPassword />
+            </div>
         </div>
     </div>
   )
