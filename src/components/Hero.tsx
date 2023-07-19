@@ -13,8 +13,8 @@ const Model =(props:any):any=>{
 const Hero = () => {
   return (
     <div className="flex flex-row py-12 justify-center gap-20 px-20">
-      <div className="flex flex-col flex-wrap w-1/2 items-start gap-64">
-        <h1 className=" text-7xl font-bold  leading-tight ">
+      <div className="flex flex-col flex-wrap w-1/2 items-start gap-48">
+        <h1 className=" text-7xl font-bold leading-normal ">
           Begin Your <span className="text-teal-400">3D Modeling Course</span> For Free.
         </h1>
 
