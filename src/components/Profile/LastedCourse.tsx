@@ -18,7 +18,7 @@ const LastedCourse = () => {
   return (
     <div className=''>
       <div className='flex justify-between items-center p-1'>
-        <p className='text-3xl font-bold'>Lasted Coutses</p>
+        <p className='text-3xl font-bold'>Lasted Courses</p>
         <p className='text-s font-medium'>SEE ALL</p>
       </div>
       <div className='p-5 m-5 border border-black rounded-3xl'>
