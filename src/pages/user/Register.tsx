@@ -50,7 +50,6 @@ const Register = () => {
       </div>
       <div className="flex flex-col gap-2">
         <input className="p-3 rounded" type="email"placeholder="Email" onChange={(e)=> setEmailInput(e.target.value)} required/>
-
       </div>
       <div className="flex flex-col gap-2">
         <input className="p-3 rounded" type="username" placeholder="Username" onChange={(e)=> setUsernameInput(e.target.value)}  required/>
@@ -69,20 +68,20 @@ const Register = () => {
       </div>
       <div className="flex gab-5">
       <p>Gender:</p>
-       <input className="p-3 rounded"  type='radio' id='Male' name='gender' value='Male' onChange={(e)=> setGenderInput(e.target.value)}></input>
+       <input className="p-3 rounded"  type='radio' id='Male' name='gender' value='Male' onChange={(e)=> setGenderInput(e.target.value)} required></input>
        <label htmlFor="Male">Male</label>
-       <input type='radio' id='Female' name='gender' value='Female' onChange={(e)=> setGenderInput(e.target.value)}></input>
+       <input type='radio' id='Female' name='gender' value='Female' onChange={(e)=> setGenderInput(e.target.value)} required></input>
        <label htmlFor="Female">Female</label>
-       <input type='radio' id='LGBTIQA+ ' name='gender' value='LGBTIQA+' onChange={(e)=> setGenderInput(e.target.value)}></input>
+       <input type='radio' id='LGBTIQA+ ' name='gender' value='LGBTIQA+' onChange={(e)=> setGenderInput(e.target.value)} required></input>
        <label htmlFor="LGBTIQA+ ">LGBTIQA+ </label>
-       <input type='radio' id='none ' name='gender' value='none' onChange={(e)=> setGenderInput(e.target.value)}></input>
+       <input type='radio' id='none ' name='gender' value='none' onChange={(e)=> setGenderInput(e.target.value)} required></input>
        <label htmlFor="none">Prefer not to say.</label>
        </div>
        <div className="flex gab-5">
       <p>Role:</p>
-       <input className="p-3 rounded"  type='radio' id='learner' name='learner' value='learner' onChange={(e)=> setRoleInput(e.target.value)} required></input>
+       <input className="p-3 rounded"  type='radio' id='learner' name='role' value='learner' onChange={(e)=> setRoleInput(e.target.value)} required></input>
        <label htmlFor="student">Learner</label>
-       <input type='radio' id='instuctor' name='instuctor' value='instuctor' onChange={(e)=> setRoleInput(e.target.value)} required></input>
+       <input type='radio' id='instuctor' name='role' value='instuctor' onChange={(e)=> setRoleInput(e.target.value)} required></input>
        <label htmlFor="instuctor">Instuctor</label>
        </div>
 
