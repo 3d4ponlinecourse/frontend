@@ -7,6 +7,7 @@ import Login from "./pages/user/Login"
 import Register from "./pages/user/Register"
 // import { Profile } from "./pages/user/Profile"
 import Editprofile from "./components/Editprofile"
+import Home from "./pages/Home"
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   return (
     <>
     <Navbar/>
+    <Home/>
     <Routes>
         <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
           <Route path="/login" element={<Login />} />
