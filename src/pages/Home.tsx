@@ -7,7 +7,6 @@ import Resources from '../components/Resources'
 const Home = () => {
   return (
     <div className="">
-      {' '}
       <Hero />
       <News />
       <Resources/>

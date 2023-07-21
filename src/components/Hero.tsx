@@ -12,11 +12,14 @@ const Model =(props:any):any=>{
 
 const Hero = () => {
   return (
-    <div className="flex flex-row py-12 justify-center gap-20 px-20">
-      <div className="flex flex-col flex-wrap w-1/2 items-start gap-48">
-        <h1 className=" text-7xl font-bold leading-normal ">
-          Begin Your <span className="text-teal-400">3D Modeling Course</span> For Free.
-        </h1>
+    <div className="flex flex-col lg:flex-row py-12 lg:py-12 justify-center gap-4 lg:gap-20 px-4 lg:px-20">
+      <div className="flex flex-col flex-wrap  lg:w-1/2 items-start gap-24 lg:gap-48">
+        <div className="text-6xl lg:text-8xl font-bold flex flex-col gap-4">
+          <h1>Begin Your</h1>
+          <h1 className='text-teal-400'>3D Modeling</h1>
+          <h1 className='text-teal-400'>Course</h1>
+          <h1>For Free.</h1>
+        </div>
 
         <div>
           <button className="button-3d4p">Enroll this course</button>
@@ -28,9 +31,9 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="bg-zinc-700 w-2/3 min-h-full">
+      <div className="bg-zinc-700 w-full lg:w-2/3 md:min-h-96 lg:min-h-full order-first lg:order-last hidden md:block">
         <Canvas dpr={[1,2]} shadows>
-            <PerspectiveCamera makeDefault  zoom={1.7} position={[0,1,5]}  fov={50}/>
+            <PerspectiveCamera makeDefault  zoom={1.8} position={[0,1,5]}  fov={50}/>
         <color attach="background" args={["#2d2d30"]}/>
         <PresentationControls speed={1.5} global zoom={0.7} polar={[-0.1,Math.PI/4]}>
             <Stage preset={'soft'} environment={'city'} shadows>

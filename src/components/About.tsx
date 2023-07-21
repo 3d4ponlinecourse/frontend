@@ -3,8 +3,8 @@ import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
 
 const About = () => {
   return (
-    <><div className=" px-64 py-32 flex flex-row  gap-32 bg-zinc-900">
-    <div className="flex flex-col justify-between">
+    <><div className=" px-4 lg:px-64 py-16 lg:py-32 flex flex-col lg:flex-row gap-8 lg:gap-32 bg-zinc-900">
+    <div className="flex flex-col justify-between gap-8">
       <div className="flex flex-col flex-wrap gap-8">
         <h2 className="font-bold text-4xl text-teal-400">Meet Jacob Larzuri</h2>
         <p>
@@ -21,13 +21,13 @@ const About = () => {
       </div>
     </div>
 
-    <img
-      className="w-80 rounded-box"
+    <img 
+      className="w-64 h-64 md:w-80 md:h-80 rounded-box order-first"
       src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFuJTIwc21pbGV8ZW58MHx8MHx8fDA%3D&w=1000&q=80"
     />
     
   </div>
-  <div className="carousel carousel-center w-64 p-4 space-x-4 bg-neutral rounded-box">
+  <div className="carousel carousel-center max-w-4xl p-4 space-x-4 bg-neutral rounded-box">
   <div className="carousel-item">
     <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Shrek_%28character%29.png" className="rounded-box" />
   </div> 
