@@ -18,7 +18,7 @@ const Login = () => {
       await login(usernameInput, passwordInput)
 
       toast.success('Logged In!')
-      navigate('/')
+      navigate('/profile')
     } catch (err: any) {
       console.log(err)
       toast.error(err.message)
