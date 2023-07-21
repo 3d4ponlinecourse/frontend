@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../providers/AuthProvider";
 import { FormEvent, useState } from 'react'
 import { toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 
 
@@ -16,18 +17,20 @@ const Register = () => {
     const [passwordInput, setPasswordInput] = useState<string>('')
     const [conpasswordInput, setConPasswordInput] = useState<string>('')
     const [genderInput, setGenderInput] = useState<string>('')
-    const [roleInput, setRoleInput] = useState<string>('')
+  
     
     
     
 
    const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-   
+    if( passwordInput !== conpasswordInput) {
+      return alert("Please Check your password!!!")
+    }
 
 
    try {
-     await register(emailInput, usernameInput, firstnameInput, lastnameInput, passwordInput, conpasswordInput, genderInput,roleInput)
+     await register(emailInput, usernameInput, firstnameInput, lastnameInput, passwordInput, conpasswordInput, genderInput)
      await login(usernameInput,passwordInput)
 
      toast.success('Registered and Login!')
@@ -77,13 +80,11 @@ const Register = () => {
        <input type='radio' id='none ' name='gender' value='none' onChange={(e)=> setGenderInput(e.target.value)} required></input>
        <label htmlFor="none">Prefer not to say.</label>
        </div>
-       <div className="flex gab-5">
-      <p>Role:</p>
-       <input className="p-3 rounded"  type='radio' id='learner' name='role' value='learner' onChange={(e)=> setRoleInput(e.target.value)} required></input>
-       <label htmlFor="student">Learner</label>
-       <input type='radio' id='instuctor' name='role' value='instuctor' onChange={(e)=> setRoleInput(e.target.value)} required></input>
-       <label htmlFor="instuctor">Instuctor</label>
-       </div>
+
+      <div>
+        Already have an account?<Link to='/login'><span className="underline">Login</span></Link>
+      </div>
+      
 
 
 
