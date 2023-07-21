@@ -1,4 +1,3 @@
-import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import { useAuth } from './providers/AuthProvider'
@@ -23,7 +22,7 @@ function App() {
         <Route path="/register" element={<Register />} />
       </Route>
       <Route path="/profile" element={<Profile />} />
-      <Route path="/home" element={<Home /> } />
+      <Route path="/" element={<Home /> } />
     </Routes>
     </div>
   )

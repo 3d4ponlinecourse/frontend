@@ -1,8 +1,7 @@
-import React from 'react'
 
 const ResetPassword = () => {
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col w-1/2'>
       <p className='flex justify-start text-3xl font-bold'>Reset Password</p>
       <div className='grid gird-cols-1 gap-3 mt-10 mb-10'>
         <label className='flex justify-start font-semibold'>Old Password</label>
