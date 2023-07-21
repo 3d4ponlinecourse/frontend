@@ -17,9 +17,10 @@ function App() {
   return (
     <>
     <Navbar/>
-    <Home/>
+   
     <Routes>
         <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
+          <Route path="/" element={ <Home/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
            <Route path="/courselist" element={<Courselist/>} />

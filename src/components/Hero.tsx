@@ -12,7 +12,7 @@ const Model =(props:any):any=>{
 
 const Hero = () => {
   return (
-    <div className="flex flex-col lg:flex-row py-12 lg:py-12 justify-center gap-4 lg:gap-20 px-4 lg:px-20">
+    <div className="flex flex-col md:flex-row py-12 lg:py-8 justify-center gap-4 md:gap-12 px-4 md:px-12 lg:px-20">
       <div className="flex flex-col flex-wrap  lg:w-1/2 items-start gap-24 lg:gap-48">
         <div className="text-6xl lg:text-8xl font-bold flex flex-col gap-4">
           <h1>Begin Your</h1>
@@ -24,14 +24,14 @@ const Hero = () => {
         <div>
           <button className="button-3d4p">Enroll this course</button>
           <div className="text-2xl flex flex-row justify-between p-8">
-            <AiFillFacebook />
-            <AiOutlineTwitter />
-            <BsDiscord />
+            <span className='hover:text-teal-400 hover:cursor-pointer'><AiFillFacebook /></span>
+            <span className='hover:text-teal-400 hover:cursor-pointer'><AiOutlineTwitter /></span>
+            <span className='hover:text-teal-400 hover:cursor-pointer'><BsDiscord /></span>
           </div>
         </div>
       </div>
 
-      <div className="bg-zinc-700 w-full lg:w-2/3 md:min-h-96 lg:min-h-full order-first lg:order-last hidden md:block">
+      <div className="bg-zinc-700 w-1/2 lg:w-2/3  lg:min-h-full hidden md:block">
         <Canvas dpr={[1,2]} shadows>
             <PerspectiveCamera makeDefault  zoom={1.8} position={[0,1,5]}  fov={50}/>
         <color attach="background" args={["#2d2d30"]}/>

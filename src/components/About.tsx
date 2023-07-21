@@ -3,7 +3,7 @@ import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
 
 const About = () => {
   return (
-    <><div className=" px-4 lg:px-64 py-16 lg:py-32 flex flex-col lg:flex-row gap-8 lg:gap-32 bg-zinc-900">
+    <><div className=" px-4 md:px-12 lg:px-64 py-16 lg:py-32 flex flex-col md:flex-row gap-8 lg:gap-32 bg-zinc-900">
     <div className="flex flex-col justify-between gap-8">
       <div className="flex flex-col flex-wrap gap-8">
         <h2 className="font-bold text-4xl text-teal-400">Meet Jacob Larzuri</h2>
@@ -16,8 +16,8 @@ const About = () => {
         </p>
       </div>
       <div className="text-2xl flex flex-row gap-10">
-        <AiFillFacebook />
-        <AiOutlineTwitter />
+      <span className='hover:text-teal-400 hover:cursor-pointer'><AiFillFacebook /></span>
+      <span className='hover:text-teal-400 hover:cursor-pointer'> <AiOutlineTwitter /></span>
       </div>
     </div>
 
@@ -27,29 +27,7 @@ const About = () => {
     />
     
   </div>
-  <div className="carousel carousel-center max-w-4xl p-4 space-x-4 bg-neutral rounded-box">
-  <div className="carousel-item">
-    <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Shrek_%28character%29.png" className="rounded-box" />
-  </div> 
-  <div className="carousel-item">
-    <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Shrek_%28character%29.png" className="rounded-box" />
-  </div> 
-  <div className="carousel-item">
-  <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Shrek_%28character%29.png" className="rounded-box" />
-  </div> 
-  <div className="carousel-item">
-  <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Shrek_%28character%29.png" className="rounded-box" />
-  </div> 
-  <div className="carousel-item">
-  <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Shrek_%28character%29.png" className="rounded-box" />
-  </div> 
-  <div className="carousel-item">
-  <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Shrek_%28character%29.png" className="rounded-box" />
-  </div> 
-  <div className="carousel-item">
-  <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Shrek_%28character%29.png" className="rounded-box" />
-  </div>
-</div>
+
   </>
     
 

@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProvider'
 import React from 'react'
+
+const NavItem:string[] = ['NEWS','RESOURCES','ABOUT'];
+
 const Navbar = () => {
   const { isLoggedIn, logout } = useAuth()
 
   return (
-    <nav className=" flex flex-col px-4 lg:px-16 bg-zinc-900 sticky top-0 z-50">
+    <nav className=" flex flex-col px-4 md:px-12 lg:px-16 bg-zinc-900 sticky top-0 z-50">
       <div className="flex flex-wrap items-center justify-between  p-4">
         <Link to={'/'} className="flex items-center">
 <svg className='w-16 fill-teal-400' id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 540">
@@ -18,10 +21,8 @@ const Navbar = () => {
 </svg>
         </Link>
 
-        <ul className="flex flex-row gap-16">
-          <li>News</li>
-          <li>Resources</li>
-          <li>About</li>
+        <ul className="flex flex-row gap-16 font-bold text-sm">
+          {NavItem.map(item=><li className='hover:text-teal-400 hover:cursor-pointer'>{item}</li>)}
           <li>
             {isLoggedIn ? (
               <button onClick={logout} className="">
@@ -29,7 +30,7 @@ const Navbar = () => {
               </button>
             ) : (
               <Link to="/login" className=" border-2 border-teal-400 text-teal-400 px-6 py-2 rounded-full hover:bg-slate-200 hover:text-black ">
-                Login
+                LOGIN
               </Link>
             )}
           </li>
