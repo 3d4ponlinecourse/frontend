@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProvider'
-import { FiBox} from "react-icons/fi";
 import React from 'react'
 
 const Navbar = () => {

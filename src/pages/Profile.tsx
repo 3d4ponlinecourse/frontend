@@ -1,6 +1,7 @@
 import React from 'react'
 import LastedCourse from './../components/Profile/LastedCourse'
 import ResetPassword from './../components/Profile/ResetPassword'
+import Editprofile from '../components/Profile/Editprofile'
 
 
 export const Profile = () => {
@@ -28,9 +29,14 @@ export const Profile = () => {
             <div>
                 <LastedCourse />
             </div>
+
+             <div className='w-full'>
+                <Editprofile/>
+            </div>
             <div className='w-1/2'>
                 <ResetPassword />
             </div>
+           
         </div>
     </div>
   )

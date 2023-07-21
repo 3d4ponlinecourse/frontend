@@ -5,7 +5,7 @@ interface IAuthContext {
     username: string | null
     login: (username: string, password: string) => Promise<void>
     register: (email: string, username: string, firstname: string,
-      lastname: string, password: string, conpassword: string, gender:any, role:any) => Promise<void>
+      lastname: string, password: string, conpassword: string, gender:string) => Promise<void>
     logout: () => void
   }
   
@@ -56,7 +56,7 @@ interface IAuthContext {
      const registerBody = { email, username, firstname, lastname, password, conpassword, gender}
 
      try {
-      const res = await fetch('https://api.learnhub.thanayut.in.th/auth/me', {
+      const res = await fetch('https://api.learnhub.thanayut.in.th/user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(registerBody),
@@ -71,8 +71,6 @@ interface IAuthContext {
     }
   }
 
-
-   
 
     const logout = () => {
       localStorage.removeItem('token')

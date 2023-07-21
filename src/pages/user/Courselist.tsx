@@ -1,6 +1,8 @@
 import { useNavigate } from "react-router-dom"
 import { useAuth } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
+import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
+import { BsDiscord } from 'react-icons/bs'
 
 
 
@@ -13,15 +15,22 @@ const Courselist = () => {
     <div>
         <div className="">
 
-        <h1 className="font-bold text-4xl indent-2">Course List</h1>
-        <p className="text-xl indent-2">Let's Explore your new study</p>
-        <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full indent-2">
-            Enroll this course</button>
+        <h1 className="text-7xl font-bold leading-normal">Course List</h1>
+        <p className="text-5xl font-bold">Let's Explore your new study.</p>
+        
+        <div>
+          <Link to="/login">
+          <button className="button-3d4p">Enroll this course</button>
+          </Link>
+          <div className="text-2xl flex flex-row">
+            <AiFillFacebook />
+            <AiOutlineTwitter />
+            <BsDiscord />
+          </div>
+         </div>   
         <p className="font-bold indent-2">Course</p>
         <p className="text-right indent-2">See all</p>
-        <br />
-        <br />
-        <br />
+      
    </div>
         <div className="grid grid-cols-3 gap-4">
         <div className="box-border h-32 w-32 border-2 p-6">Box1
@@ -51,6 +60,7 @@ const Courselist = () => {
         </p>
       <footer>3D4P</footer>
     </div>
+    
     
     
       

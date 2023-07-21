@@ -6,8 +6,8 @@ import GuardedRoute from "./guards/GuardedRoute"
 import Login from "./pages/user/Login"
 import Register from "./pages/user/Register"
 import Courselist from "./pages/user/Courselist"
-import Editprofile from "./components/Editprofile"
 import Home from "./pages/Home"
+import Profile from "./pages/Profile"
 
 
 function App() {
@@ -17,17 +17,18 @@ function App() {
   return (
     <div>
     <Navbar/>
-    <Home/>
     <Routes>
         <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-           <Route path="/courselist" element={<Courselist/>} />
-           <Route path="/editprofile" element={<Editprofile/>} />
-        </Route>  
-        
+        </Route>
+        <Route path="/courselist" element={<Courselist />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/" element={<Home />} />
    </Routes>
-   </>
+    
+   </div>
+  
   )
 }
 

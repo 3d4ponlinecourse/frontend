@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import React from 'react'
 import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
 import { BsDiscord } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
 
 const Model =(props:any):any=>{
@@ -19,7 +20,9 @@ const Hero = () => {
         </h1>
 
         <div>
+          <Link to="/login">
           <button className="button-3d4p">Enroll this course</button>
+          </Link>
           <div className="text-2xl flex flex-row justify-between p-8">
             <AiFillFacebook />
             <AiOutlineTwitter />
@@ -27,7 +30,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
       <div className="bg-zinc-700 w-2/3 min-h-full">
         <Canvas dpr={[1,2]} shadows>
             <PerspectiveCamera makeDefault  zoom={1.7} position={[0,1,5]}  fov={50}/>
