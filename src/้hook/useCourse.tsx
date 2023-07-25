@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const useCourse = (id: string) => {
   const [course, setCourse] = useState(null)
-  const []= useState()
+  const [isLoading, setIsLoading]= useState(false)
   const [error, setError] = useState(null)
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const useCourse = (id: string) => {
 
         setCourse(data)
       } catch (err: any) {
-        
+        setError(err.message)
       } finally {
         
       }
@@ -23,7 +23,7 @@ const useCourse = (id: string) => {
     fetchData()
   }, [])
 
-  return  {course, error}
+  return  {course, isLoading, error}
 }
 
 export default useCourse
