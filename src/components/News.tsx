@@ -18,7 +18,7 @@ const Content: IContent[] = [
   },
   {
     id: 2,
-    date: 'JUNE 7, 2023',
+    date: 'JUNE 3, 2023',
     topic: 'Adobe live - Substance 3D tools',
     body: "Get ready for a new kind of livestream: In collaboration with Adobe we've setup a two part Zelda-inspired livestream",
   },
@@ -54,6 +54,10 @@ const News = () => {
         {Content.map((item) => (
           <Card key={item.id} className="w-auto bg-neutral-300">
             <CardBody>
+              <div className="pb-2">
+                <Typography>{item.date}</Typography>
+              </div>
+
               <Typography variant="h5" color="blue-gray" className="mb-2">
                 {item.topic}
               </Typography>

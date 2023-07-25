@@ -10,8 +10,8 @@ interface INavItem {
 
 const NavItem: INavItem[] = [
   { id: 1, name: 'NEWS', link: '' },
-  { id: 2, name: 'RESOURCES', link: '' },
-  { id: 3, name: 'ABOUT', link: '' },
+  { id: 2, name: 'ABOUT', link: '' },
+  { id: 3, name: 'RESOURCES', link: '' },
   { id: 4, name: 'FAQ', link: '' },
 ]
 
