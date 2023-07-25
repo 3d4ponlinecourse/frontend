@@ -9,6 +9,7 @@ const useUser = (id: string) => {
       const fetchData = async () => {
         setIsLoading(true)
         try {
+          
           const res = await fetch(`/user/${id}`)
           const data = await res.json()
   

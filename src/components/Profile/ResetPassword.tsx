@@ -1,15 +1,15 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import useUser from "../../้hook/useUser"
 
 const ResetPassword = () => {
-  const [password , setPassword] = useState<string>('')
-  const { user, isLoading, error } = useUser(id)
+  // const [password , setPassword] = useState<string>('')
+  // const { user, isLoading, error } = useUser(id)
 
-  useEffect(() => {
-    if (user) {
-      setPassword(user.password)
-    }
-  }, [user)
+  // useEffect(() => {
+  //   if (user) {
+  //     setPassword(user)
+  //   }
+  // }, [user])
   
   return (
     <div className='flex flex-col w-1/2'>
