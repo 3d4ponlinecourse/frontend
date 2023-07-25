@@ -1,6 +1,8 @@
-
+import { FormEvent, useEffect, useState } from 'react'
 
 const Editprofile = () => {
+  const [ Email, setNewEmail ] = useState()
+  
   return (
     <div className="flex flex-col gap-2 w-1/2" >
       <div className="text-center font-bold text-xls">Edit Your Profile here

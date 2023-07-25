@@ -7,6 +7,7 @@ import GuardedRoute from './guards/GuardedRoute'
 import Home from './pages/Home'
 import Register from './pages/Register'
 import Login from './pages/Login'
+import Learning from './pages/Learning'
 
 
 
@@ -22,7 +23,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
       </Route>
-      <Route path="/profile" element={<Profile />} />\
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/learning" element={<Learning />} />
       <Route path="/" element={<Home />} />
     </Routes>
     </div>

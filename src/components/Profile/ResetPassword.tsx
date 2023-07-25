@@ -1,5 +1,7 @@
 
 const ResetPassword = () => {
+
+  
   return (
     <div className='flex flex-col w-1/2'>
       <p className='flex justify-start text-3xl font-bold'>Reset Password</p>
