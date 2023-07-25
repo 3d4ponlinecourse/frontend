@@ -1,7 +1,8 @@
 import { Link, useParams } from "react-router-dom"
+import Learning from "../../pages/Learning"
+import { useAuth } from "../../providers/AuthProvider"
 
-const LastedCourse = () => {
-  
+const LastedCourse = ({course, lesson}: ) => {
   
   return (
     <div className=''>
@@ -22,8 +23,7 @@ const LastedCourse = () => {
           </div>  
         </div>
       </div>
-      <div>
-        <div className='p-3 m-5 border border-black rounded-3xl'>
+      <div className='p-3 m-5 border border-black rounded-3xl'>
         <div className='grid grid-cols-6 grid-rows-1 gap-4'>
           <div className='flex flex-col col-start-1 col-span-3 ... p-2 '>
             <h4 className='flex justify-start'>Course</h4>
@@ -34,11 +34,8 @@ const LastedCourse = () => {
           </div>
           <div className="radial-progress" style={{"--value":75}}>{}</div>
           <div className='flex items-center'>
-            <Link to={`/learning/${course.id}`}>
-              <button className='border border-black p-2 rounded-3xl text-xs w-36 col-end-6'>Resume Learning</button>
-            </Link>
+            <button className='border border-black p-2 rounded-3xl text-xs w-36 col-end-6'>Resume Learning</button>
           </div>  
-        </div>
         </div>
       </div>
     </div>
