@@ -6,6 +6,6 @@
 
 @layer components{
     .button-3d4p{
-        @apply font-bold md:text-xl py-4 px-10  bg-teal-400 hover:bg-zinc-200 rounded-full text-black
+        @apply font-bold md:text-lg py-4 px-10  bg-teal-400 rounded-full text-black hover:bg-neutral-200
     }
 }

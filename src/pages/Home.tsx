@@ -3,15 +3,18 @@ import Hero from '../components/Hero'
 import News from '../components/News'
 import About from '../components/About'
 import Resources from '../components/Resources'
+import FAQ from '../components/FAQ'
+import Footer from '../components/Footer'
 
 const Home = () => {
   return (
-    <div className="">
+    <div>
       <Hero />
+      <Resources />
       <News />
-      <Resources/>
       <About />
-      
+      <FAQ />
+      <Footer />
     </div>
   )
 }
