@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 interface IContent {
   id: number
@@ -100,7 +99,7 @@ const Lesson = () => {
     <div className="bg-zinc-100 ">
       <div>
         {Content.map((item) => (
-          <Link to="/learning page">
+          <Link to="/">
             <div className="">
               <table className="box-content">
                 <tbody className="">
