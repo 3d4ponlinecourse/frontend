@@ -1,11 +1,26 @@
 export interface ContentDto {
-    courseId: number
-    id: string
-    videourl: string
+    id: number
     courseName: string
-    duration: Date
+    videoUrl: string
+    imageUrl: string
     description: string
-    comment: string
-    rating:number
+    duration: string
+    comment: []
+    Lesson: [
+        {
+            id: number
+            lessonName: string
+            videoUrl: string
+            duration: string
+        }
+    ]
+}
+
+
+export interface UserDto {
+    id: number
+    username: string
+    name: string
+    registeredAt: string
 }
 

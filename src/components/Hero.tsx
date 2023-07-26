@@ -5,10 +5,9 @@ import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
 import { BsDiscord } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 
-
-const Model =(props:any):any=>{
-    const {scene}=useGLTF("/Benz.glb")
-    return <primitive object={scene}{...props}/>
+const Model = (props: any): any => {
+  const { scene } = useGLTF('/Benz.glb')
+  return <primitive object={scene} {...props} />
 }
 
 const Hero = () => {
@@ -21,7 +20,7 @@ const Hero = () => {
 
         <div>
           <Link to="/login">
-          <button className="button-3d4p">Enroll this course</button>
+            <button className="button-3d4p">Enroll this course</button>
           </Link>
           <div className="text-2xl flex flex-row justify-between p-8">
             <AiFillFacebook />
@@ -31,18 +30,18 @@ const Hero = () => {
         </div>
       </div>
       <div className="bg-zinc-700 w-2/3 min-h-full">
-        <Canvas dpr={[1,2]} shadows>
-            <PerspectiveCamera makeDefault  zoom={1.7} position={[0,1,5]}  fov={50}/>
-        <color attach="background" args={["#2d2d30"]}/>
-        <PresentationControls speed={1.5} global zoom={0.7} polar={[-0.1,Math.PI/4]}>
+        <Canvas dpr={[1, 2]} shadows>
+          <PerspectiveCamera makeDefault zoom={1.7} position={[0, 1, 5]} fov={50} />
+          <color attach="background" args={['#2d2d30']} />
+          <PresentationControls speed={1.5} global zoom={0.7} polar={[-0.1, Math.PI / 4]}>
             <Stage preset={'soft'} environment={'city'} shadows>
-                {/* <mesh rotation={[angleToRaidian(-90),0,0]}>
+              {/* <mesh rotation={[angleToRaidian(-90),0,0]}>
                     <planeGeometry args={[1,1]}/>
                     <meshStandardMaterial/>
                 </mesh> */}
-            <Model scale={1}/>
+              <Model scale={1} />
             </Stage>
-        </PresentationControls>
+          </PresentationControls>
         </Canvas>
       </div>
     </div>

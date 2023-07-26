@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../providers/AuthProvider";
+import { useAuth } from "../providers/AuthProvider";
 import { FormEvent, useState } from 'react'
 import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
@@ -85,7 +85,6 @@ const Register = () => {
         Already have an account?<Link to='/login'><span className="underline">Login</span></Link>
       </div>
       
-
 
 
       <div className="text-violet-600">
