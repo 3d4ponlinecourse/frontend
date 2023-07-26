@@ -48,7 +48,7 @@ const News = () => {
             News & Updates<span className="text-teal-400">.</span>
           </h2>{' '}
         </div>
-        <p className="font-bold hidden lg:block hover:text-teal-400 hover:cursor-pointer">SEE ALL</p>
+        <p className="font-bold hidden md:block hover:text-teal-400 hover:cursor-pointer">SEE ALL</p>
       </div>
       <div className="flex flex-row gap-4 flex-wrap md:flex-nowrap">
         {Content.map((item) => (

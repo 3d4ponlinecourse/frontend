@@ -1,7 +1,6 @@
 import React from 'react'
 import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
 import { Dialog, DialogBody, Card } from '@material-tailwind/react'
-
 interface IPortfolio {
   id: number
   img: string
@@ -71,7 +70,7 @@ const About = () => {
         <div className="flex flex-row gap-3 flex-wrap md:flex-nowrap">
           {Portfolio.map((item) => (
             <>
-              <Card className="cursor-pointer overflow-hidden transition-opacity hover:opacity-90" onClick={handleOpen}>
+              <Card className="cursor-pointer overflow-hidden transition-opacity hover:opacity-70" onClick={handleOpen}>
                 <img
                   className="h-full w-full object-cover object-center"
                   onClick={() => setImg(item.img)}

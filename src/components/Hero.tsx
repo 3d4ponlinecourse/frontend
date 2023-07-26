@@ -1,6 +1,6 @@
-import { PerspectiveCamera, PresentationControls, Stage, useGLTF } from '@react-three/drei'
+import { Loader, PerspectiveCamera, PresentationControls, Stage, useGLTF } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
-import React from 'react'
+import React, { Suspense } from 'react'
 import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
 import { BsDiscord } from 'react-icons/bs'
 
@@ -38,15 +38,18 @@ const Hero = () => {
 
       <div className="bg-zinc-700 w-1/2 lg:w-2/3  min-h-full hidden md:block overflow-hidden rounded-box border-2 border-teal-400">
         <Canvas dpr={[1, 2]} shadows>
-          <PerspectiveCamera makeDefault zoom={1.8} position={[0, 1, 5]} fov={50} />
-          <color attach="background" args={['#2d2d30']} />
-          <PresentationControls speed={1.5} global zoom={0.7} polar={[-0.1, Math.PI / 4]}>
-            <Stage preset={'soft'} environment={'city'} shadows>
-              <Model scale={1} />
-            </Stage>
-          </PresentationControls>
+          <Suspense fallback={null}>
+            <PerspectiveCamera makeDefault zoom={1.8} position={[0, 1, 5]} fov={50} />
+            {/* <color attach="background" args={['#2d2d30']} /> */}
+            <PresentationControls speed={1.5} global zoom={0.7} polar={[-0.1, Math.PI / 4]}>
+              <Stage preset={'soft'} environment={'city'} shadows>
+                <Model scale={1} />
+              </Stage>
+            </PresentationControls>
+          </Suspense>
         </Canvas>
       </div>
+      <Loader />
     </div>
   )
 }

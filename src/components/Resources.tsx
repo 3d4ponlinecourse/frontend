@@ -51,6 +51,7 @@ const cardMotion = {
 }
 
 const textMotion = {
+  start: {},
   hover: {
     color: 'teal',
   },
@@ -69,7 +70,7 @@ const Resources = () => {
           </h2>
         </div>
 
-        <p className="font-bold hidden lg:block hover:text-teal-400 hover:cursor-pointer">SEE ALL</p>
+        <p className="font-bold hidden md:block hover:text-teal-400 hover:cursor-pointer">SEE ALL</p>
       </div>
       <div className="flex flex-row gap-2 justify-center flex-wrap lg:flex-nowrap">
         {resource.map((item) => (

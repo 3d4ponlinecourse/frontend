@@ -20,30 +20,33 @@ const FAQ = () => {
 
       <div>
         <Accordion open={open === 1}>
-          <AccordionHeader onClick={() => handleOpen(1)} className={`text-neutral-300 hover:text-neutral-500`}>
-            What is Material Tailwind?
+          <AccordionHeader onClick={() => handleOpen(1)} className={`text-neutral-400 hover:text-neutral-500`}>
+            What is 3D4P?
           </AccordionHeader>
           <AccordionBody className={'text-neutral-300'}>
-            We&apos;re not always in the position that we want to be at. We&apos;re constantly growing. We&apos;re
-            constantly making mistakes. We&apos;re constantly trying to express ourselves and actualize our dreams.
+            On this site, you will find a variety of tutorials, articles, videos and eBooks all of which will show you
+            exactly HOW I make the things I love doing… You’ll also find resources I created which you could utilise in
+            your own projects.
           </AccordionBody>
         </Accordion>
         <Accordion open={open === 2}>
-          <AccordionHeader onClick={() => handleOpen(2)} className={`text-neutral-300 hover:text-neutral-500`}>
-            How to use Material Tailwind?
+          <AccordionHeader onClick={() => handleOpen(2)} className={`text-neutral-400 hover:text-neutral-500`}>
+            How to use 3D4P?
           </AccordionHeader>
           <AccordionBody className={'text-neutral-300'}>
-            We&apos;re not always in the position that we want to be at. We&apos;re constantly growing. We&apos;re
-            constantly making mistakes. We&apos;re constantly trying to express ourselves and actualize our dreams.
+            On this site, you will find a variety of tutorials, articles, videos and eBooks all of which will show you
+            exactly HOW I make the things I love doing… You’ll also find resources I created which you could utilise in
+            your own projects.
           </AccordionBody>
         </Accordion>
         <Accordion open={open === 3}>
-          <AccordionHeader onClick={() => handleOpen(3)} className={`text-neutral-300 hover:text-neutral-500`}>
-            What can I do with Material Tailwind?
+          <AccordionHeader onClick={() => handleOpen(3)} className={`text-neutral-400 hover:text-neutral-500`}>
+            What can I do with 3D4P?
           </AccordionHeader>
           <AccordionBody className={'text-neutral-300'}>
-            We&apos;re not always in the position that we want to be at. We&apos;re constantly growing. We&apos;re
-            constantly making mistakes. We&apos;re constantly trying to express ourselves and actualize our dreams.
+            On this site, you will find a variety of tutorials, articles, videos and eBooks all of which will show you
+            exactly HOW I make the things I love doing… You’ll also find resources I created which you could utilise in
+            your own projects.
           </AccordionBody>
         </Accordion>
       </div>

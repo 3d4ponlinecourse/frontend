@@ -14,7 +14,7 @@ function App() {
   const { isLoggedIn } = useAuth()
 
   return (
-    <div className='className="text-neutral-300 selection:bg-teal-300 selection:text-black"'>
+    <div className='className="text-neutral-300 selection:bg-teal-300 selection:text-neutral-900"'>
       <Navbar />
 
       <Routes>

@@ -3,16 +3,15 @@ import { useAuth } from '../providers/AuthProvider'
 import React from 'react'
 
 interface INavItem {
-  id: number
   name: string
   link: string
 }
 
 const NavItem: INavItem[] = [
-  { id: 1, name: 'NEWS', link: '' },
-  { id: 2, name: 'ABOUT', link: '' },
-  { id: 3, name: 'RESOURCES', link: '' },
-  { id: 4, name: 'FAQ', link: '' },
+  { name: 'RESOURCES', link: '' },
+  { name: 'NEWS', link: '' },
+  { name: 'ABOUT', link: '' },
+  { name: 'FAQ', link: '' },
 ]
 
 const Navbar = () => {
@@ -40,7 +39,7 @@ const Navbar = () => {
 
         <ul className="flex flex-row gap-16 font-bold text-sm">
           {/* {NavItem.map((item) => (
-            <li className="hover:text-teal-400 hover:cursor-pointer" key={item.id}>
+            <li className="hover:text-teal-400 hover:cursor-pointer" key={item.name}>
               {item.name}
             </li>
           ))} */}
