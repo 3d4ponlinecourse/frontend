@@ -1,6 +1,6 @@
 import React from 'react'
 import BannerCourse from '../components/course/BannerCourse'
-import Lesson from '../components/course/Lesson'
+
 import Overview from '../components/course/Overview'
 
 const ContentCourse = () => {
@@ -9,9 +9,9 @@ const ContentCourse = () => {
       <div>
         <BannerCourse />
       </div>
-      <div>
+      {/* <div>
         <Lesson />
-      </div>
+      </div> */}
       <div>
         <Overview />
       </div>
