@@ -29,12 +29,12 @@ const About = () => {
   const handleOpen = () => setOpen((cur) => !cur)
 
   return (
-    <div className="px-4 md:px-12 lg:px-64 py-16 lg:py-32  bg-black flex flex-col gap-8">
+    <div className="px-4 md:px-12 lg:px-64 py-16 lg:py-32 bg-gray-900 flex flex-col gap-8">
       <div className="  flex flex-col items-start md:flex-row gap-8 lg:gap-16">
         <div className="flex flex-col justify-between gap-8">
-          <div className="flex flex-col flex-wrap gap-8">
+          <div className="flex flex-col flex-wrap gap-8 text-white">
             <h2 className="font-bold text-4xl text-teal-400">Meet Jacob Larzuri</h2>
-            <h3 className="font-bold text-xl">
+            <h3 className="font-bold text-xl ">
               Hi I’m Jacob. I love making art as well as sharing what I know to everybody who love art.
             </h3>
             <p>
@@ -46,7 +46,7 @@ const About = () => {
               journey too!
             </p>
           </div>
-          <div className="text-2xl flex flex-row gap-10">
+          <div className="text-2xl flex flex-row gap-10 text-white">
             <span className="hover:text-teal-400 hover:cursor-pointer">
               <AiFillFacebook />
             </span>
@@ -58,12 +58,12 @@ const About = () => {
         </div>
 
         <img
-          className="w-64 h-full md:w-80 rounded-box order-first"
+          className="w-64 h-full md:w-80 rounded-xl order-first"
           // src="https://media4.giphy.com/media/3o85gaCV88we8SYJOM/giphy.gif?cid=ecf05e47l1zf1p7bz2xruv1vu0xfc6xdwaib1lf7zhuy3va7&ep=v1_gifs_search&rid=giphy.gif&ct=g"
           src="https://blenderartists.org/uploads/default/original/4X/4/2/7/427fd35ed1d3368b26797507889c5d938cd4186f.png"
         />
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-4 text-white">
         <h3 className="text-xl font-bold">
           My recent works<span className="text-teal-400">.</span>
         </h3>

@@ -78,20 +78,17 @@ const Resources = () => {
             initial="rest"
             animate="rest"
             whileHover="hover"
-            className="w-80  bg-zinc-900 shadow-xl overflow-hidden rounded-box relative  cursor-pointer"
+            className="w-80  bg-zinc-900 shadow-xl overflow-hidden rounded-lg relative  cursor-pointer"
             key={item.id}
           >
             <motion.div variants={cardMotion} transition={{ ease: 'easeInOut' }}>
               <img className="" src={item.img} />
             </motion.div>
 
-            <div className="bg-gradient-to-t absolute bottom-0 from-black w-full h-32"></div>
+            <div className="bg-gradient-to-t absolute top-30 from-black w-full h-32"></div>
             <motion.div variants={textMotion} className="absolute bottom-4 left-8">
-              <h3 className="font-bold hover:text-teal-400">
-                {item.header}
-                {item.isNew ? <div className="badge badge-outline badge-accent mx-1">NEW</div> : ''}
-              </h3>
-              <p className="text-xs font-bold text-neutral-500">{item.type}</p>
+              <h3 className="font-bold text-white hover:text-teal-200">{item.header}</h3>
+              <p className="text-xs font-bold text-gray-400">{item.type}</p>
             </motion.div>
           </motion.div>
         ))}

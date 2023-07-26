@@ -18,8 +18,8 @@ const Navbar = () => {
   const { isLoggedIn, logout } = useAuth()
 
   return (
-    <nav className=" flex flex-col px-4 md:px-12 lg:px-16 bg-neutral-900 sticky top-0 z-50">
-      <div className="flex flex-wrap items-center justify-between  p-4">
+    <nav className=" flex flex-col px-4 md:px-12 lg:px-40 bg-neutral-900 sticky top-0 z-50">
+      <div className="flex flex-wrap items-center justify-between p-4">
         <Link to={'/'} className="flex items-center">
           <svg
             className="w-16 fill-teal-400"
@@ -51,7 +51,7 @@ const Navbar = () => {
             ) : (
               <Link
                 to="/login"
-                className=" border-2 border-teal-400 text-teal-400 px-6 py-2 rounded-full hover:bg-neutral-300 hover:text-black "
+                className=" border-2 border-teal-400 text-teal-400 px-6 py-2 rounded-full bg-white hover:bg-teal-400 hover:text-white "
               >
                 LOGIN
               </Link>

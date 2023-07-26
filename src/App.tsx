@@ -9,17 +9,19 @@ import Courselist from './pages/user/Courselist'
 import Editprofile from './components/Editprofile'
 import Home from './pages/Home'
 import React from 'react'
+import LearningPage from './pages/LearningPage'
 
 function App() {
   const { isLoggedIn } = useAuth()
 
   return (
-    <div className='className="text-neutral-300 selection:bg-teal-300 selection:text-neutral-900"'>
+    <div className="bg-white">
       <Navbar />
 
       <Routes>
         <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
           <Route path="/" element={<Home />} />
+          <Route path="/learn" element={<LearningPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/courselist" element={<Courselist />} />
