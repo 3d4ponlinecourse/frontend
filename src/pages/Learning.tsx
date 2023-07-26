@@ -1,5 +1,4 @@
-import React from 'react'
-import LessonProgressList from '../components/LessonProgressList'
+
 
 const Learning = () => {
   return (
@@ -7,7 +6,7 @@ const Learning = () => {
       <div>
       </div>
       <div>
-        <LessonProgressList />
+        
       </div>
     </div>
   )

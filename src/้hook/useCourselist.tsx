@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from 'react'
 
-const useUser = (id: string) => {
-    const [user , useUser] = useState(null)
+const useCourselist = () => {
+    const [courselist , useCourselist] = useState(null)
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState(null)
   
@@ -9,10 +9,10 @@ const useUser = (id: string) => {
       const fetchData = async () => {
         setIsLoading(true)
         try {
-          const res = await fetch(`http://localhost:8000/user/${id}`)
+          const res = await fetch(`http://localhost:8000/course`)
           const data = await res.json()
   
-          useUser(data)
+          useCourselist(data)
         } catch (err: any) {
           setError(err.message)
         } finally {
@@ -23,7 +23,7 @@ const useUser = (id: string) => {
       fetchData()
     }, [])
   
-    return { user, isLoading, error }
-  }
-  
-  export default useUser
+    return  { courselist, isLoading, error }
+}
+
+export default useCourselist

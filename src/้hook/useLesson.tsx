@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
-const useUser = (id: string) => {
-    const [user , useUser] = useState(null)
-    const [isLoading, setIsLoading] = useState<boolean>(false)
+const useLesson = (id: string) => {
+    const [lesson , useLesson] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState(null)
   
     useEffect(() => {
       const fetchData = async () => {
         setIsLoading(true)
         try {
-          const res = await fetch(`http://localhost:8000/user/${id}`)
+          const res = await fetch(`http://localhost:8000/lesson/${id}`)
           const data = await res.json()
   
-          useUser(data)
+          useLesson(data)
         } catch (err: any) {
           setError(err.message)
         } finally {
@@ -23,7 +23,7 @@ const useUser = (id: string) => {
       fetchData()
     }, [])
   
-    return { user, isLoading, error }
+    return { lesson, isLoading, error }
   }
   
-  export default useUser
+  export default useLesson
