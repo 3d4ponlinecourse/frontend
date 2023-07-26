@@ -1,14 +1,16 @@
-import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import React from 'react'
 import { useAuth } from './providers/AuthProvider'
-import { Profile } from './pages/Profile'
 import Navbar from './components/Navbar'
 import GuardedRoute from './guards/GuardedRoute'
-import Home from './pages/Home'
+import Login from './pages/Login'
 import Register from './pages/Register'
-
-
+import Home from './pages/Home'
+import Profile from './pages/Profile'
+import Create from './pages/Create'
+import ContentCourse from './pages/ContentCourse'
+import LearningPage from './components/course/LearningPage'
 
 function App() {
   const { isLoggedIn } = useAuth()
@@ -16,13 +18,19 @@ function App() {
   return (
     <div>
       <Navbar />
-      <Home />
       <Routes>
         <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/contentcourse" element={<ContentCourse />} />
+          <Route path="/learningpage" element={<LearningPage />} />
+
+          <Route path="/" element={<Home />} />
         </Route>
-        <Route path="/profile" element={<Profile />} />
+        <Route element={<GuardedRoute isRouteAccessible={isLoggedIn} redirectRoute="/" />}>
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/create" element={<Create />} />
+        </Route>
       </Routes>
     </div>
   )

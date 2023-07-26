@@ -4,6 +4,8 @@ import ResetPassword from './../components/Profile/ResetPassword'
 import Editprofile from '../components/Profile/Editprofile'
 
 export const Profile = () => {
+  const [component, setChange] = useState(<LastedCourse />)
+
   return (
     <div className="flex items-start w-full px-8 m-5 gap-8">
       <div className="justify-center border border-black grid gap-y-16 rounded-3xl py-8 w-4/12">

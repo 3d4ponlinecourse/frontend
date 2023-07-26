@@ -1,6 +1,15 @@
 import React from 'react'
 
 const ResetPassword = () => {
+  // const [password , setPassword] = useState<string>('')
+  // const { user, isLoading, error } = useUser(id)
+
+  // useEffect(() => {
+  //   if (user) {
+  //     setPassword(user)
+  //   }
+  // }, [user])
+
   return (
     <div className="flex flex-col">
       <p className="flex justify-start text-3xl font-bold">Reset Password</p>
