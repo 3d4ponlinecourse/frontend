@@ -1,7 +1,6 @@
 import React, { FormEvent, useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
-import ReactStars from 'react-stars'
 
 const Create = () => {
   const navigate = useNavigate()
@@ -45,17 +44,6 @@ const Create = () => {
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           required
-        />
-      </div>
-      <div className="flex items-center gap-2 font-bold text-xl">
-        <label>Rating:</label>
-        <ReactStars
-          count={5}
-          value={rating}
-          onChange={(rating) => setRating(rating)}
-          size={24}
-          color2={'#F2BE22'}
-          half={false}
         />
       </div>
 
