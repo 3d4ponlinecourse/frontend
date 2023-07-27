@@ -160,7 +160,7 @@ const LearningPage = () => {
           </TabsHeader>
           <TabsBody>
             <TabPanel key="overview" value="overview">
-              Test
+              {Content.map((item) => item.description)}
             </TabPanel>
             <TabPanel key="reviews" value="reviews">
               <Reviews />
