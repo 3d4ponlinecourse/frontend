@@ -117,32 +117,36 @@ const Register = () => {
         <div className="flex flex-row flex-wrap">
           <Radio
             color="teal"
-            id="Male"
+            id="MALE"
             name="gender"
+            value="MALE"
             label={<Typography className="text-neutral-400">Male</Typography>}
             onChange={(e) => setGenderInput(e.target.value)}
             required
           ></Radio>
           <Radio
             color="teal"
-            id="Female"
+            id="FEMALE"
             name="gender"
+            value="FEMALE"
             label={<Typography className="text-neutral-400">Female</Typography>}
             onChange={(e) => setGenderInput(e.target.value)}
             required
           ></Radio>
           <Radio
             color="teal"
-            id="LGBTIQA+ "
+            id="LGBTQ"
             name="gender"
+            value="LGBTQ"
             label={<Typography className="text-neutral-400">LGBTIQA+</Typography>}
             onChange={(e) => setGenderInput(e.target.value)}
             required
           ></Radio>
           <Radio
             color="teal"
-            id="PFNTS"
+            id="PREFERNOTTOSAY"
             name="gender"
+            value="PREFERNOTTOSAY"
             label={<Typography className="text-neutral-400">Prefer not to say</Typography>}
             onChange={(e) => setGenderInput(e.target.value)}
             required
