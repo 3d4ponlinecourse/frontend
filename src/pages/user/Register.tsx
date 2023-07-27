@@ -155,7 +155,7 @@ const Register = () => {
       </div>
 
       <div className="text-violet-600">
-        <Button color="teal" className="w-full">
+        <Button color="teal" className="w-full" type="submit" value="submit">
           Submit
         </Button>
       </div>
