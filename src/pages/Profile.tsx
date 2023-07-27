@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import LastedCourse from '../components/Profile/LastedCourse'
-import ResetPassword from '../components/Profile/ResetPassword'
-import Editprofile from '../components/Profile/Editprofile'
+import LastedCourse from '../components/profile/LastedCourse'
+import ResetPassword from '../components/profile/ResetPassword'
+import Editprofile from '../components/profile/Editprofile'
 import React from 'react'
 
 export const Profile = () => {

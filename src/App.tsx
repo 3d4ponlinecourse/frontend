@@ -8,6 +8,7 @@ import Register from './pages/user/Register'
 import Home from './pages/Home'
 import React from 'react'
 import LearningPage from './pages/LearningPage'
+import Profile from './pages/Profile'
 
 function App() {
   const { isLoggedIn } = useAuth()
@@ -21,14 +22,13 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/learn" element={<LearningPage />} />
+          <Route path="/profile" element={<Profile />} />
 
           {/* <Route path="/contentcourse" element={<ContentCourse />} /> */}
 
           <Route path="/" element={<Home />} />
         </Route>
-        <Route element={<GuardedRoute isRouteAccessible={isLoggedIn} redirectRoute="/" />}>
-          {/* <Route path="/profile" element={<Profile />} /> */}
-        </Route>
+        <Route element={<GuardedRoute isRouteAccessible={isLoggedIn} redirectRoute="/" />}></Route>
       </Routes>
     </div>
   )

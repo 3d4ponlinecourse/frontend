@@ -1,14 +1,14 @@
 import { FormEvent, useEffect, useState } from 'react'
-import useUser from '../../้hook/useUser'
+import useUser from '../../hooks/useUser'
 import { useNavigate, useParams } from 'react-router-dom'
-import Loading from '../../pages/Loading'
+import Loading from '../Loading'
 import React from 'react'
 
 const ResetPassword = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const [newPassword, setNewPassword] = useState<string>('')
-  const { user, isLoading, error } = useUser(id || '1')
+  const { user, isLoading } = useUser(id || '1')
 
   useEffect(() => {
     if (user) {

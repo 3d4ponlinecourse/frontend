@@ -42,11 +42,10 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(loginInfo),
       })
-      const data = await res.json()
-
-      if (data.statusCode === 401) {
-        throw new Error(data.message)
+      if (res.status > 400) {
+        throw new Error(res.statusText)
       }
+      const data = await res.json()
 
       localStorage.setItem('token', data.accessToken)
       localStorage.setItem('user', username)

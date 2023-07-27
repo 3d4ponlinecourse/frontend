@@ -1,9 +1,13 @@
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import React from 'react'
+import useCourse from '../../hooks/useCourse'
+import Loading from '../Loading'
 
 const LastedCourse = () => {
-  // const { id } = useParams()
-  // const { course, isLoading, error} = useCourse(id)
+  const { id } = useParams()
+  const { course, isLoading, error } = useCourse(id || '')
+
+  if (!course) return <Loading />
 
   return (
     <div className="">
