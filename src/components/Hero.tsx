@@ -6,6 +6,7 @@ import { BsDiscord } from 'react-icons/bs'
 import { Button } from '@material-tailwind/react'
 import angleToRaidian from '../utility/angleToRaidian'
 import { Link } from 'react-router-dom'
+
 const Model = (props: any): any => {
   const { scene } = useGLTF('/Benz.glb')
   return <primitive object={scene} {...props} />
@@ -23,9 +24,11 @@ const Hero = () => {
         </div>
 
         <div>
-          <Button color="teal" size="lg" className="button-3d4p">
-            get started
-          </Button>
+          <Link to="/register">
+            <Button color="teal" size="lg" className="button-3d4p">
+              get started
+            </Button>
+          </Link>
           <div className="text-2xl flex flex-row justify-between p-8">
             <span className="hover:text-teal-400 hover:cursor-pointer">
               <Link to="https://www.facebook.com/">

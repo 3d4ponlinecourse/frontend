@@ -86,6 +86,7 @@ const Register = () => {
           className="text-neutral-400"
           color="teal"
           label="Email"
+          type="email"
           onChange={(e) => setEmailInput(e.target.value)}
           required
         />
