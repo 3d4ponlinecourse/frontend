@@ -37,16 +37,15 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const loginInfo = { username, password }
 
     try {
-      const res = await fetch('https://api.learnhub.thanayut.in.th/auth/login', {
+      const res = await fetch('http://localhost:8000/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(loginInfo),
       })
-      const data = await res.json()
-
-      if (data.statusCode === 401) {
-        throw new Error(data.message)
+      if (res.status > 400) {
+        throw new Error(res.statusText)
       }
+      const data = await res.json()
 
       localStorage.setItem('token', data.accessToken)
       localStorage.setItem('user', username)
@@ -69,7 +68,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const registerBody = { email, username, firstname, lastname, password, conpassword, gender }
 
     try {
-      const res = await fetch('https://api.learnhub.thanayut.in.th/user', {
+      const res = await fetch('http://localhost:8000/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(registerBody),

@@ -19,7 +19,7 @@ const Login = () => {
       await login(usernameInput, passwordInput)
 
       toast.success('Logged In!')
-      navigate('/')
+      navigate('/profile')
     } catch (err: any) {
       console.log(err)
       toast.error(err.message)
@@ -47,7 +47,7 @@ const Login = () => {
         />
       </div>
       <div className=" text-blue-600 underline"></div>
-      <Button color="teal" className="">
+      <Button type="submit" value="submit" color="teal" className="">
         Login
       </Button>
 
