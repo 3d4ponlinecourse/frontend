@@ -15,7 +15,7 @@ const Model = (props: any): any => {
 const Hero = () => {
   return (
     <div className="flex flex-col md:flex-row py-12 lg:py-16 justify-center gap-4 md:gap-8 px-4 md:px-12 ">
-      <div className="flex flex-col flex-wrap  lg:w-1/2 items-start gap-24 lg:gap-48">
+      <div className="flex flex-col flex-wrap  lg:w-1/2 items-start gap-24 lg:gap-24">
         <div className="text-8xl font-bold flex flex-col gap-4">
           <h1>Begin Your</h1>
           <h1 className="text-teal-400">3D Modeling</h1>
@@ -29,7 +29,7 @@ const Hero = () => {
               get started
             </Button>
           </Link>
-          <div className="text-2xl flex flex-row justify-between p-8">
+          <div className="text-2xl flex flex-row  justify-between p-3">
             <span className="hover:text-teal-400 hover:cursor-pointer">
               <Link to="https://www.facebook.com/">
                 <AiFillFacebook />
