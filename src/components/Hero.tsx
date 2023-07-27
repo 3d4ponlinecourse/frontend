@@ -5,6 +5,7 @@ import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
 import { BsDiscord } from 'react-icons/bs'
 import { Button } from '@material-tailwind/react'
 import angleToRaidian from '../utility/angleToRaidian'
+import { Link } from 'react-router-dom'
 const Model = (props: any): any => {
   const { scene } = useGLTF('/Benz.glb')
   return <primitive object={scene} {...props} />
@@ -23,17 +24,23 @@ const Hero = () => {
 
         <div>
           <Button color="teal" size="lg" className="button-3d4p">
-            Enroll this course
+            get started
           </Button>
           <div className="text-2xl flex flex-row justify-between p-8">
             <span className="hover:text-teal-400 hover:cursor-pointer">
-              <AiFillFacebook />
+              <Link to="https://www.facebook.com/">
+                <AiFillFacebook />
+              </Link>
             </span>
             <span className="hover:text-teal-400 hover:cursor-pointer">
-              <AiOutlineTwitter />
+              <Link to="https://twitter.com/i/flow/login?redirect_after_login=%2Flogin%3Flang%3Dth">
+                <AiOutlineTwitter />
+              </Link>
             </span>
             <span className="hover:text-teal-400 hover:cursor-pointer">
-              <BsDiscord />
+              <Link to="https://discord.com/">
+                <BsDiscord />
+              </Link>
             </span>
           </div>
         </div>

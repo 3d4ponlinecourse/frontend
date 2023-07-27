@@ -7,10 +7,11 @@ interface IAuthContext {
   register: (
     email: string,
     username: string,
-    Name: string,
+    firstname: string,
+    lastname: string,
     password: string,
     conpassword: string,
-    gender: any,
+    gender: string,
   ) => Promise<void>
   logout: () => void
 }
@@ -68,7 +69,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const registerBody = { email, username, firstname, lastname, password, conpassword, gender }
 
     try {
-      const res = await fetch('https://api.learnhub.thanayut.in.th/auth/me', {
+      const res = await fetch('https://api.learnhub.thanayut.in.th/user', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(registerBody),

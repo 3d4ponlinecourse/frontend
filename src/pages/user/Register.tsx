@@ -10,16 +10,28 @@ const Register = () => {
   const navigate = useNavigate()
   const [emailInput, setEmailInput] = useState<string>('')
   const [usernameInput, setUsernameInput] = useState<string>('')
-  const [nameInput, setNameInput] = useState<string>('')
+  const [firstnameInput, setFirstnameInput] = useState<string>('')
+  const [lastnameInput, setLastnameInput] = useState<string>('')
   const [passwordInput, setPasswordInput] = useState<string>('')
   const [conpasswordInput, setConPasswordInput] = useState<string>('')
   const [genderInput, setGenderInput] = useState<string>('')
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
+    if (passwordInput !== conpasswordInput) {
+      return alert('Please Check your password!!!')
+    }
 
     try {
-      await register(emailInput, usernameInput, nameInput, passwordInput, conpasswordInput, genderInput)
+      await register(
+        emailInput,
+        usernameInput,
+        firstnameInput,
+        lastnameInput,
+        passwordInput,
+        conpasswordInput,
+        genderInput,
+      )
       await login(usernameInput, passwordInput)
 
       toast.success('Registered and Login!')
@@ -33,26 +45,49 @@ const Register = () => {
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-6 max-w-md m-auto my-14 py-5 px-7">
       <div>
-        <h1 className="text-4xl font-bold text-teal-400">REGISTRATION</h1>
-        <p>Complete your profile and start your learning!</p>
+        <h1 className="text-4xl font-bold text-teal-400 text-center">REGISTRATION</h1>
+        <p className="text-center">Complete your profile and start your learning!</p>
       </div>
       <div className="flex flex-col gap-2">
-        <Input className="text-neutral-400" color="teal" label="Name" onChange={(e) => setNameInput(e.target.value)} />
+        <Input
+          className="text-neutral-400"
+          color="teal"
+          type="text"
+          label="Firstname"
+          onChange={(e) => setFirstnameInput(e.target.value)}
+          required
+        />
       </div>
+
+      <div className="flex flex-col gap-2">
+        <Input
+          className="text-neutral-400"
+          color="teal"
+          type="text"
+          label="Lastname"
+          onChange={(e) => setLastnameInput(e.target.value)}
+          required
+        />
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <Input
+          className="text-neutral-400"
+          color="teal"
+          type="text"
+          label="Username"
+          onChange={(e) => setUsernameInput(e.target.value)}
+          required
+        />
+      </div>
+
       <div className="flex flex-col gap-2">
         <Input
           className="text-neutral-400"
           color="teal"
           label="Email"
           onChange={(e) => setEmailInput(e.target.value)}
-        />
-      </div>
-      <div className="flex flex-col gap-2">
-        <Input
-          className="text-neutral-400"
-          color="teal"
-          label="Username"
-          onChange={(e) => setUsernameInput(e.target.value)}
+          required
         />
       </div>
 
@@ -63,6 +98,7 @@ const Register = () => {
           color="teal"
           label="Password"
           onChange={(e) => setPasswordInput(e.target.value)}
+          required
         />
       </div>
       <div className="flex flex-col gap-2">
@@ -72,6 +108,7 @@ const Register = () => {
           color="teal"
           label="Confirm Password"
           onChange={(e) => setConPasswordInput(e.target.value)}
+          required
         />
       </div>
       <div className="flex flex-row items-start gap-4 ">
@@ -83,6 +120,7 @@ const Register = () => {
             name="gender"
             label={<Typography className="text-neutral-400">Male</Typography>}
             onChange={(e) => setGenderInput(e.target.value)}
+            required
           ></Radio>
           <Radio
             color="teal"
@@ -90,6 +128,7 @@ const Register = () => {
             name="gender"
             label={<Typography className="text-neutral-400">Female</Typography>}
             onChange={(e) => setGenderInput(e.target.value)}
+            required
           ></Radio>
           <Radio
             color="teal"
@@ -97,6 +136,7 @@ const Register = () => {
             name="gender"
             label={<Typography className="text-neutral-400">LGBTIQA+</Typography>}
             onChange={(e) => setGenderInput(e.target.value)}
+            required
           ></Radio>
           <Radio
             color="teal"
@@ -104,6 +144,7 @@ const Register = () => {
             name="gender"
             label={<Typography className="text-neutral-400">Prefer not to say</Typography>}
             onChange={(e) => setGenderInput(e.target.value)}
+            required
           ></Radio>
         </div>
       </div>
