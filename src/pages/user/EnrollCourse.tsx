@@ -20,10 +20,6 @@ function addCourse(courses: Course): void {
   push(courses)
 }
 
-
-
-
-
 const EnrollCourse = () => {
   return <div>EnrollCourse</div>
 }
