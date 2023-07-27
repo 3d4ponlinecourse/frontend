@@ -138,7 +138,7 @@ const Register = () => {
             id="LGBTQ"
             name="gender"
             value="LGBTQ"
-            label={<Typography className="text-neutral-400">LGBTIQA+</Typography>}
+            label={<Typography className="text-neutral-400">LGBTQ</Typography>}
             onChange={(e) => setGenderInput(e.target.value)}
             required
           ></Radio>
