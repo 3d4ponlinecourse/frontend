@@ -1,4 +1,4 @@
-import { Loader, PerspectiveCamera, PresentationControls, Stage, useGLTF } from '@react-three/drei'
+import { PerspectiveCamera, PresentationControls, Stage, useGLTF } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import React, { Suspense } from 'react'
 import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
@@ -12,13 +12,13 @@ const Model = (props: any): any => {
 
 const Hero = () => {
   return (
-    <div className="flex flex-col md:flex-row py-12 lg:py-16 justify-center gap-4 md:gap-8 px-4 md:px-12 ">
-      <div className="flex flex-col flex-wrap  lg:w-1/2 items-start gap-24 lg:gap-48">
+    <div className="flex flex-col md:flex-row py-12 lg:py-4 justify-center gap-4 md:gap-8 px-4 md:px-12 ">
+      <div className="flex flex-col flex-wrap  lg:w-1/2 items-start gap-24 lg:gap-16">
         <div className="text-8xl font-bold flex flex-col gap-4">
-          <h1>Begin Your</h1>
-          <h1 className="text-teal-400">3D Modeling</h1>
+          <h1 className="relative ">Begin Your</h1>
+          <h1 className=" text-teal-400">3D Modeling</h1>
           <h1 className="text-teal-400">Course</h1>
-          <h1>For Free.</h1>
+          <h1 className="">For Free.</h1>
         </div>
 
         <div>
@@ -39,20 +39,20 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="bg-zinc-700 min-h-full h-96 hidden lg:block overflow-hidden absolute w-1/3 right-1/4 top-32">
+      <div className="bg-zinc-700 min-h-full h-96 hidden lg:block overflow-hidden absolute w-1/2 right-32 top-3 ">
         <Canvas dpr={[1, 2]} shadows>
           <Suspense fallback={null}>
-            <PerspectiveCamera makeDefault zoom={1.4} position={[0, 1, 5]} fov={50} />
+            <PerspectiveCamera makeDefault zoom={1.4} position={[0, 0.5, 5]} fov={80} />
             {/* <color attach="background" args={['#2d2d30']} /> */}
             <PresentationControls speed={1.5} global zoom={0.7} polar={[-0.1, Math.PI / 4]}>
               <Stage preset={'soft'} environment={'city'} shadows>
-                <Model scale={1} rotation={[0, angleToRaidian(-15), 0]} />
+                <Model scale={1} rotation={[0, angleToRaidian(30), 0]} />
               </Stage>
             </PresentationControls>
           </Suspense>
         </Canvas>
       </div>
-      <Loader />
+      {/* <Loader /> */}
     </div>
   )
 }

@@ -84,10 +84,9 @@ const Resources = () => {
             <motion.div variants={cardMotion} transition={{ ease: 'easeInOut' }}>
               <img className="" src={item.img} />
             </motion.div>
-
             <div className="bg-gradient-to-t absolute top-30 from-black w-full h-32"></div>
             <motion.div variants={textMotion} className="absolute bottom-4 left-8">
-              <h3 className="font-bold text-white hover:text-teal-200">{item.header}</h3>
+              <h3 className="font-bold text-white">{item.header}</h3>
               <p className="text-xs font-bold text-gray-400">{item.type}</p>
             </motion.div>
           </motion.div>

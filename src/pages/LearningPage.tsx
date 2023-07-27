@@ -32,7 +32,7 @@ const LearningPage = () => {
             <Rating value={3} readonly unratedColor="teal" ratedColor="teal" />
           </div>
           {/* ratingBar */}
-          <div className="w-3/4 flex flex-col">
+          <div className="w-2/4 flex flex-col">
             <div className="flex flex-row items-center gap-4">
               <Progress value={50} color="teal" size="sm" />
               <Rating value={5} readonly unratedColor="teal" ratedColor="teal" />
