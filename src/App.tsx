@@ -20,13 +20,14 @@ function App() {
         <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/learn" element={<LearningPage />} />
+
           {/* <Route path="/contentcourse" element={<ContentCourse />} /> */}
 
           <Route path="/" element={<Home />} />
         </Route>
         <Route element={<GuardedRoute isRouteAccessible={isLoggedIn} redirectRoute="/" />}>
           {/* <Route path="/profile" element={<Profile />} /> */}
-          <Route path="/learn" element={<LearningPage />} />
         </Route>
       </Routes>
     </div>
