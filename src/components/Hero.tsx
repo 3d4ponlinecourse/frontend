@@ -15,8 +15,8 @@ const Model = (props: any): any => {
 const Hero = () => {
   return (
     <div className="flex flex-col md:flex-row py-12 lg:py-16 lg:pb-40 justify-center gap-4 md:gap-8 px-4 md:px-12 ">
-      <div className="flex flex-col flex-wrap  lg:w-1/2 items-start gap-24 lg:gap-24">
-        <div className="text-8xl font-bold flex flex-col gap-4">
+      <div className="flex flex-col flex-wrap  lg:w-1/3 items-start gap-24 lg:gap-24">
+        <div className="text-7xl font-bold flex flex-col gap-4">
           <h1>Begin Your</h1>
           <h1 className="text-teal-400">3D Modeling</h1>
           <h1 className="text-teal-400">Course</h1>
@@ -49,7 +49,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="bg-zinc-700 min-h-full h-96 hidden lg:block overflow-hidden absolute w-1/3 right-1/4 top-32">
+      <div className="bg-zinc-700 min-h-full hidden lg:block overflow-hidden relative w-1/3 ">
         <Canvas dpr={[1, 2]} shadows>
           <Suspense fallback={null}>
             <PerspectiveCamera makeDefault zoom={1.4} position={[0, 1, 5]} fov={50} />
