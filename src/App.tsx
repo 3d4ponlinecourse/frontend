@@ -9,11 +9,8 @@ import Register from './pages/Register'
 import Login from './pages/Login'
 import Learning from './pages/Learning'
 
-
-
 function App() {
   const { isLoggedIn } = useAuth()
-
 
   return (
     <div>

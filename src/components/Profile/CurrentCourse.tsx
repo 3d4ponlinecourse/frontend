@@ -1,6 +1,6 @@
 import { Link, useParams } from "react-router-dom"
 
-const LastedCourse = () => {
+const CurrentCourse = () => {
   // const { id } = useParams()
   // const { course, isLoading, error} = useCourse(id)
   
@@ -23,7 +23,7 @@ const LastedCourse = () => {
           </div>  
         </div>
       </div>
-      <div>
+      {/* <div>
         <div className='p-3 m-5 border border-black rounded-3xl'>
         <div className='grid grid-cols-6 grid-rows-1 gap-4'>
           <div className='flex flex-col col-start-1 col-span-3 ... p-2 '>
@@ -41,10 +41,10 @@ const LastedCourse = () => {
           </div>  
         </div>
         </div>
-      </div>
+      </div> */}
     </div>
   
   )
 }
 
-export default LastedCourse
+export default CurrentCourse

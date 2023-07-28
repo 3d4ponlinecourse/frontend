@@ -10,6 +10,13 @@ const Editprofile = () => {
           <input  className=''type="text"  placeholder="Firstname" />
           <input type="text"  placeholder="Lastname"/>
           <input type="email" placeholder="Email" />
+          <div className="form-control w-full max-w-xs">
+            <label className="label">
+              <span className="label-text">Picture</span>
+            </label>
+            <input type="file" className="file-input file-input-bordered w-full max-w-xs" />
+            
+          </div>
         </div>
         <div className="bg-teal-400 hover:bg-teal-950 text-center text-white font-bold py-2 rounded-full indent-2 my-0.5">
         <button>Save Change</button>      

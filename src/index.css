@@ -4,8 +4,4 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components{
-    .button-3d4p{
-        @apply font-bold py-4 px-10  bg-teal-400 hover:bg-zinc-200 rounded-full text-black
-    }
-}
+

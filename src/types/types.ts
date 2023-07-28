@@ -11,7 +11,7 @@ export interface UserDto {
     password: string
     firstname: string
     lastname: string
-    profilePic: string
+    profilePic?: string
     email: string
     gender: Gender
     googleaccount?: string
