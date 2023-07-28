@@ -1,9 +1,11 @@
 import { Link, useParams } from "react-router-dom"
+import { IUserWithEnrollment } from "../../types/enrollment"
 
-const CurrentCourse = () => {
-  // const { id } = useParams()
-  // const { course, isLoading, error} = useCourse(id)
-  
+export interface UserCourseProps {
+  user: IUserWithEnrollment
+}
+
+const CurrentCourse = ({ user }: UserCourseProps) => {  
   return (
     <div className=''>
       <div className='flex justify-between items-center'>
@@ -23,25 +25,25 @@ const CurrentCourse = () => {
           </div>  
         </div>
       </div>
-      {/* <div>
+      <div>
         <div className='p-3 m-5 border border-black rounded-3xl'>
         <div className='grid grid-cols-6 grid-rows-1 gap-4'>
           <div className='flex flex-col col-start-1 col-span-3 ... p-2 '>
             <h4 className='flex justify-start'>Course</h4>
-            <Link to={`/learning/${course.id}`}>
-              <button className='flex justify-start font-bold'>{course.courseName}</button>
-              <button className='flex justify-start font-bold'>{lesson.lessonName}</button>
+            <Link to={`/learning`}>
+              <button className='flex justify-start font-bold'>{user.enrollment[0].courseName}</button>
+              <button className='flex justify-start font-bold'>Lesson Name</button>
             </Link>
           </div>
           <div className="radial-progress" style={{"--value":75}}>{}</div>
           <div className='flex items-center'>
-            <Link to={`/learning/${course.id}`}>
+            <Link to={`/learning`}>
               <button className='border border-black p-2 rounded-3xl text-xs w-36 col-end-6'>Resume Learning</button>
             </Link>
           </div>  
         </div>
         </div>
-      </div> */}
+      </div>
     </div>
   
   )

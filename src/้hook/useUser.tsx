@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
-import { UserDto } from "../types/types"
+import { IUserWithEnrollment } from "../types/enrollment"
 
 const useUser = (id: string) => {
-    const [user , useUser] = useState<UserDto>()
+    const [user , useUser] = useState<IUserWithEnrollment>()
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState(null)
   
@@ -10,7 +10,7 @@ const useUser = (id: string) => {
       const fetchData = async () => {
         setIsLoading(true)
         try {
-          const res = await fetch(`http://localhost:8000/${id}`)
+          const res = await fetch(`http://localhost:8000/user/enroll/${id}`)
           const data = await res.json()
   
           useUser(data)
