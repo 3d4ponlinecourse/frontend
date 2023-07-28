@@ -14,7 +14,7 @@ const EnrollCourse = () => {
     const token = localStorage.getItem('token')
 
     try {
-      await fetch('http://localhost:8000/course', {
+      await fetch(`http://localhost:8000/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const EnrollCourse = () => {
     >
       <div className="flex flex-col gap-2">
         <label>ID:</label>
-        <input className="p-3 rounded" type="number" value={id} onChange={(id) => setId(id)} required />
+        <input className="p-3 rounded" type="number" value={id} onChange={() => setId()} required />
       </div>
       <div className="flex flex-col gap-2">
         <label>UserID:</label>

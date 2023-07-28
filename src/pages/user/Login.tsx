@@ -51,7 +51,7 @@ const Login = () => {
         Login
       </Button>
 
-      <div className="">
+      <div>
         <p>
           Not a member yet?
           <Link to="/register">
