@@ -19,7 +19,9 @@ const CurrentCourse = ({ user }: UserCourseProps) => {
             <a href='' className='flex justify-start font-bold'>3D Fundamental</a>
             <a href='' className='flex justify-start font-bold'>01 - Introduction to 3D modelling</a>
           </div>
-          <div className="radial-progress" style={{"--value":75}}>75%</div>
+          <div className="radial-progress" 
+          // style={{"--value":75}}
+          >75%</div>
           <div className='flex items-center'>
             <button className='border border-black p-2 rounded-3xl text-xs w-36 col-end-6'>Resume Learning</button>
           </div>  
@@ -35,7 +37,9 @@ const CurrentCourse = ({ user }: UserCourseProps) => {
               <button className='flex justify-start font-bold'>Lesson Name</button>
             </Link>
           </div>
-          <div className="radial-progress" style={{"--value":75}}>{}</div>
+          <div className="radial-progress" 
+          // style={{"--value":75}}
+          >{}</div>
           <div className='flex items-center'>
             <Link to={`/learning`}>
               <button className='border border-black p-2 rounded-3xl text-xs w-36 col-end-6'>Resume Learning</button>

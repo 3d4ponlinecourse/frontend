@@ -31,7 +31,7 @@ interface IAuthContext {
       const loginInfo = { username, password }
   
       try {
-        const res = await fetch('https://api.learnhub.thanayut.in.th/auth/login', {
+        const res = await fetch('http://localhost:8000/user/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(loginInfo),
@@ -56,7 +56,7 @@ interface IAuthContext {
      const registerBody = { email, username, firstname, lastname, password, conpassword, gender}
 
      try {
-      const res = await fetch('https://api.learnhub.thanayut.in.th/auth/me', {
+      const res = await fetch('http://localhost:8000/user/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(registerBody),

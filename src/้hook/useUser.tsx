@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react"
 import { IUserWithEnrollment } from "../types/enrollment"
 
-const useUser = (id: string) => {
-    const [user , useUser] = useState<IUserWithEnrollment>()
+const useUser = () => {
+    const [user , setUser] = useState<IUserWithEnrollment>()
     const [isLoading, setIsLoading] = useState<boolean>(false)
     const [error, setError] = useState(null)
   
     useEffect(() => {
+      const user = localStorage.getItem("user")
+      const token = localStorage.getItem("token")
       const fetchData = async () => {
         setIsLoading(true)
         try {
-          const res = await fetch(`http://localhost:8000/user/enroll/${id}`)
+          const res = await fetch(`http://localhost:8000/user/enroll/${user}`,{headers: {"Content-Type":"application/json",Authorization: `Bearer ${token}`}})
           const data = await res.json()
   
-          useUser(data)
+          setUser(data)
+          console.log(user)
+          console.log(data)
         } catch (err: any) {
           setError(err.message)
         } finally {
