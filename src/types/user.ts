@@ -5,6 +5,15 @@ enum Gender {
   PREFERNOTTOSAY = 'PREFERNOTTOSAY',
 }
 
+export interface ICreateUser {
+  username: string
+  password: string
+  firstname: string
+  lastname: string
+  email: string
+  gender: UserGender
+}
+
 export interface User {
   id: number
   username: string
