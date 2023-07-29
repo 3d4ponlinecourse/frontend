@@ -2,13 +2,13 @@ import React from 'react'
 import { useState } from 'react'
 import Editprofile from '../components/Profile/Editprofile'
 import Loading from './Loading'
-import useUser from '../้hook/useUser'
 import CurrentCourse from '../components/Profile/CurrentCourse'
+import useProfile from '../้hook/useUser'
 
 export const Profile = () => {
   const [component, setComponent] = useState<number>(0)
-  const { userInfo, isLoading } = useUser()
-
+  const { userInfo, isLoading } = useProfile()
+  console.log(userInfo)
   if (isLoading || !userInfo) return <Loading />
 
   return (

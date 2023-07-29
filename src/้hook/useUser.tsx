@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { IUserWithEnrollment } from '../types/enrollment'
 
-const useUser = () => {
+const useProfile = () => {
   const [userInfo, setUser] = useState<IUserWithEnrollment>()
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [error, setError] = useState(null)
@@ -12,7 +12,7 @@ const useUser = () => {
     const fetchData = async () => {
       setIsLoading(true)
       try {
-        const res = await fetch(`http://localhost:8000/user/enroll/${user}`, {
+        const res = await fetch(`http://localhost:8000/user/enroll/${id}`, {
           headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
         })
         const data = await res.json()
@@ -33,4 +33,4 @@ const useUser = () => {
   return { userInfo, isLoading, error }
 }
 
-export default useUser
+export default useProfile

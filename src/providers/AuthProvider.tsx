@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface IAuthContext {
   isLoggedIn: boolean
@@ -14,6 +15,7 @@ interface IAuthContext {
     gender: string,
   ) => Promise<void>
   logout: () => void
+  id: string | null
 }
 
 const AuthContext = createContext<IAuthContext | null>(null)
@@ -28,16 +30,19 @@ export const useAuth = () => {
 
 const token = localStorage.getItem('token')
 const user = localStorage.getItem('user')
+const userId = localStorage.getItem('userid')
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!token)
   const [username, setUsername] = useState<string | null>(user)
+  const [id, setUserId] = useState<string | null>(userId)
+  const navigate = useNavigate()
 
   const login = async (username: string, password: string) => {
     const loginInfo = { username, password }
 
     try {
-      const res = await fetch('http://localhost:8000/login', {
+      const res = await fetch('http://localhost:8000/user/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(loginInfo),
@@ -47,10 +52,13 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
       const data = await res.json()
 
+      localStorage.setItem('userId', data.userId)
       localStorage.setItem('token', data.accessToken)
       localStorage.setItem('user', username)
       setIsLoggedIn(true)
       setUsername(username)
+      setUserId(id)
+      navigate(`/profile/:id`)
     } catch (err: any) {
       throw new Error(err.message)
     }
@@ -86,12 +94,16 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const logout = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
+    localStorage.removeItem('userId')
     setIsLoggedIn(false)
     setUsername(null)
+    setUserId(null)
   }
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout, username, register }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ isLoggedIn, login, logout, username, register, id }}>
+      {children}
+    </AuthContext.Provider>
   )
 }
 
