@@ -1,11 +1,18 @@
 import React from 'react'
 import { Card, CardHeader, CardBody, CardFooter, Typography, Button } from '@material-tailwind/react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import useCourselist from '../hooks/useCourselist'
 import Loading from './Loading'
 
 const EnrollCard = () => {
   const { courselist, error, isLoading } = useCourselist()
+
+  const navigate = useNavigate()
+
+  const handleNavigate = (id: number) => {
+    navigate(`/learn/${id}`)
+  }
+  console.log(courselist)
 
   if (!courselist || isLoading) return <Loading />
   if (error) return <h1>{error}</h1>
@@ -26,11 +33,9 @@ const EnrollCard = () => {
               <Typography className="font-bold">{item.duration}</Typography>
             </CardBody>
             <CardFooter className="pt-0">
-              <Link to="/learn">
-                <Button color="teal" type="submit" value="submit">
-                  Enroll this course
-                </Button>
-              </Link>
+              <Button color="teal" onClick={() => handleNavigate(item.id)}>
+                Enroll this course
+              </Button>
             </CardFooter>
           </Card>
         </>
