@@ -1,30 +1,35 @@
-import './App.css'
 import { Route, Routes } from 'react-router-dom'
+import './App.css'
 import { useAuth } from './providers/AuthProvider'
-import { Profile } from "./pages/Profile"
 import Navbar from './components/Navbar'
 import GuardedRoute from './guards/GuardedRoute'
+import Login from './pages/user/Login'
+import Register from './pages/user/Register'
 import Home from './pages/Home'
-import Register from './pages/Register'
-import Login from './pages/Login'
-import Learning from './pages/Learning'
+import React from 'react'
+import LearningPage from './pages/LearningPage'
+import Profile from './pages/Profile'
 
 function App() {
   const { isLoggedIn } = useAuth()
 
   return (
-    <div>
-    <Navbar/>
-    <Routes>
-      <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        
-      </Route>
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/learning" element={<Learning />} />
-      <Route path="/" element={<Home />} />
-    </Routes>
+    <div className="bg-white">
+      <Navbar />
+
+      <Routes>
+        <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/profile" element={<Profile />} />
+
+          {/* <Route path="/contentcourse" element={<ContentCourse />} /> */}
+
+          <Route path="/" element={<Home />} />
+        </Route>
+        <Route element={<GuardedRoute isRouteAccessible={isLoggedIn} redirectRoute="/" />}></Route>
+        <Route path="/learn" element={<LearningPage />} />
+      </Routes>
     </div>
   )
 }
