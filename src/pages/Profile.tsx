@@ -1,10 +1,17 @@
 import { useState } from 'react'
-import ResetPassword from '../components/profile/ResetPassword'
-import Editprofile from '../components/profile/Editprofile'
 import React from 'react'
+import Editprofile from '../components/profile/Editprofile'
+import Loading from '../components/Loading'
+import { useParams } from 'react-router-dom'
+import useUser from '../hooks/useUser'
+import CurrentCourse from '../components/profile/CurrentCourse'
 
 export const Profile = () => {
-  const [component, setChange] = useState(<LastedCourse />)
+  const { id } = useParams()
+  const [component, setComponent] = useState(0)
+  const { user, isLoading, error } = useUser(id || ``)
+
+  if (isLoading || !user) return <Loading />
 
   return (
     <div className="flex items-start w-full px-8 m-5 gap-8">
@@ -14,37 +21,25 @@ export const Profile = () => {
             <div>
               <img src="download.jpg" className="rounded-full w-40 h-40"></img>
             </div>
-            <h2 className=" font-bold">Hack Cvit</h2>
+            <h2 className=" font-bold">Userman</h2>
+            {/* <h2 className=' font-bold'>{user.username}</h2> */}
           </div>
         </div>
         <div className="flex-col justify-start">
           <div className="grid gap-y-8 text-2xl  flex-col">
-            <button
-              type="button"
-              onClick={() => setChange(<LastedCourse />)}
-              className="flex justify-start font-semibold"
-            >
+            <button type="button" onClick={() => setComponent(0)} className="flex justify-start font-semibold">
               Lasted Course
             </button>
-
-            <button
-              type="button"
-              onClick={() => setChange(<Editprofile />)}
-              className="flex justify-start font-semibold"
-            >
+            <button type="button" onClick={() => setComponent(1)} className="flex justify-start font-semibold">
               Edit Profile
-            </button>
-            <button
-              type="button"
-              onClick={() => setChange(<ResetPassword />)}
-              className="flex justify-start font-semibold"
-            >
-              Reset password
             </button>
           </div>
         </div>
       </div>
-      <div className="w-full">{component}</div>
+      <div className="w-full">
+        {component === 0 ? <CurrentCourse user={user} /> : null}
+        {component === 1 ? <Editprofile /> : null}
+      </div>
     </div>
   )
 }

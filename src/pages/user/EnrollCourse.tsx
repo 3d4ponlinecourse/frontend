@@ -58,9 +58,8 @@ const EnrollCourse = () => {
         <input
           className="p-3 rounded"
           type="number"
-          count={3}
           value={courseid}
-          onChange={(courseid) => setCourseId(courseid)}
+          onChange={(e) => setCourseId(e.target.value)}
           required
         />
       </div>

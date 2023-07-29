@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-const useEnrollment = () => {
+const useEnrollment = (username: string) => {
   const [enrollment, useEnrollment] = useState(null)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [error, setError] = useState(null)
@@ -9,7 +9,7 @@ const useEnrollment = () => {
     const fetchData = async () => {
       setIsLoading(true)
       try {
-        const res = await fetch(`http://localhost:8000/enrollment`)
+        const res = await fetch(`http://localhost:8000/enrollment/${username}`)
         const data = await res.json()
 
         useEnrollment(data)
