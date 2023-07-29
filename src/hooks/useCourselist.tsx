@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
+import { ShowCourse } from '../types/course'
 
 const useCourselist = () => {
-  const [courselist, useCourselist] = useState(null)
+  const [courselist, setCourselist] = useState<ShowCourse[] | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [error, setError] = useState(null)
 
@@ -12,7 +13,7 @@ const useCourselist = () => {
         const res = await fetch(`http://localhost:8000/course`)
         const data = await res.json()
 
-        useCourselist(data)
+        setCourselist(data)
       } catch (err: any) {
         setError(err.message)
       } finally {
