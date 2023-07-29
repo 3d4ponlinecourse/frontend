@@ -16,7 +16,10 @@ const EnrollCard = () => {
         <>
           <Card className="mt-6 w-96">
             <CardHeader color="blue-gray" className="relative h-56">
-              <img src={item.imageUrl} alt="card-image" />
+              <img
+                src="https://img.freepik.com/premium-photo/colorful-background-with-variety-shapes-colors_861655-28.jpg"
+                alt="card-image"
+              />
             </CardHeader>
             <CardBody>
               <Typography variant="h3" color="blue-gray" className="mb-2">
