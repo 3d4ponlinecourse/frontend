@@ -12,6 +12,7 @@ export interface ShowCourse {
 export interface ICreateCourse {
   courseName: string
   videoUrl: string
+  imageUrl: string
   duration: string
   description: string
 }
