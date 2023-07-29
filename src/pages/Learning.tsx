@@ -1,13 +1,10 @@
-
+import React from 'react'
 
 const Learning = () => {
   return (
     <div>
-      <div>
-      </div>
-      <div>
-        
-      </div>
+      <div></div>
+      <div></div>
     </div>
   )
 }

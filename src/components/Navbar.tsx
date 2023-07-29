@@ -38,11 +38,11 @@ const Navbar = () => {
         </Link>
 
         <ul className="flex flex-row gap-16 font-bold text-sm">
-          {/* {NavItem.map((item) => (
+          {NavItem.map((item) => (
             <li className="hover:text-teal-400 hover:cursor-pointer" key={item.name}>
               {item.name}
             </li>
-          ))} */}
+          ))}
           <li>
             {isLoggedIn ? (
               <button onClick={logout} className="">

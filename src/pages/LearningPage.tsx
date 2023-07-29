@@ -103,7 +103,6 @@ const LearningPage = () => {
       ],
     },
   ]
-
   const [activeTab, setActiveTab] = React.useState('overview')
   const data = [
     {

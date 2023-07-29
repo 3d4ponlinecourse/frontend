@@ -1,8 +1,9 @@
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { FormEvent, useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { Input, Button, Radio, Typography } from '@material-tailwind/react'
-import React from 'react'
+
 import { useAuth } from '../providers/AuthProvider'
 
 const Register = () => {
