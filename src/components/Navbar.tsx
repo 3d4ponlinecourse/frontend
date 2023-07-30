@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProvider'
 import React from 'react'
+import { Button, Menu, MenuHandler, MenuItem, MenuList } from '@material-tailwind/react'
 
 interface INavItem {
   name: string
@@ -14,11 +15,14 @@ const NavItem: INavItem[] = [
   { name: 'FAQ', link: '' },
 ]
 
+// const { user } = useUser('1')
+
 const Navbar = () => {
   const { isLoggedIn, logout } = useAuth()
 
   return (
     <nav className=" flex flex-col px-4 md:px-12 lg:px-40 bg-neutral-900 sticky top-0 z-50">
+      {/* <p>{user && user.username}</p> */}
       <div className="flex flex-wrap items-center justify-between p-4">
         <Link to={'/'} className="flex items-center">
           <svg
@@ -45,9 +49,17 @@ const Navbar = () => {
           ))} */}
           <li>
             {isLoggedIn ? (
-              <button onClick={logout} className="">
-                Log out
-              </button>
+              <Menu>
+                <MenuHandler>
+                  <Button color="teal" className="rounded-full">
+                    Open Menu
+                  </Button>
+                </MenuHandler>
+                <MenuList>
+                  <MenuItem>Menu Item 1</MenuItem>
+                  <MenuItem onClick={logout}>Log out</MenuItem>
+                </MenuList>
+              </Menu>
             ) : (
               <Link
                 to="/login"

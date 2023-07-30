@@ -37,7 +37,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const loginInfo = { username, password }
 
     try {
-      const res = await fetch('http://localhost:8000/login', {
+      const res = await fetch('http://localhost:8000/user/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(loginInfo),
@@ -68,7 +68,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const registerBody = { email, username, firstname, lastname, password, conpassword, gender }
 
     try {
-      const res = await fetch('http://localhost:8000/register', {
+      const res = await fetch('http://localhost:8000/user/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(registerBody),

@@ -9,10 +9,6 @@ import EnrollCard from '../components/EnrollCard'
 import FadeInWhenVisible from '../utility/FadeInWhenVisible'
 
 const Home = () => {
-  const inViewAnimation = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  }
   return (
     <>
       <FadeInWhenVisible>

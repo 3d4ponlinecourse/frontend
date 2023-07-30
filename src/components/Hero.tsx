@@ -7,8 +7,10 @@ import { Button } from '@material-tailwind/react'
 import angleToRaidian from '../utility/angleToRaidian'
 import { Link } from 'react-router-dom'
 
+// const group = useRef()
 const Model = (props: any): any => {
-  const { scene } = useGLTF('/Benz.glb')
+  const { scene, animations } = useGLTF('/Benz.glb')
+  // const { actions } = useAnimations(animations, group)
   return <primitive object={scene} {...props} />
 }
 

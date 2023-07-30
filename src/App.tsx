@@ -18,7 +18,6 @@ function App() {
     <div className="bg-white">
       <Toaster position="top-center" />
       <Navbar />
-
       <Routes>
         <Route path="/" element={<Home />} />
         <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
@@ -28,7 +27,7 @@ function App() {
           {/* <Route path="/contentcourse" element={<ContentCourse />} /> */}
         </Route>
         <Route element={<GuardedRoute isRouteAccessible={isLoggedIn} redirectRoute="/login" />}>
-          <Route path="/learn" element={<LearningPage />} />
+          <Route path="/learn/:id" element={<LearningPage />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
       </Routes>

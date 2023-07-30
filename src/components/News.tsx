@@ -64,7 +64,9 @@ const News = () => {
               <Typography>{item.body}</Typography>
             </CardBody>
             <CardFooter className="pt-0">
-              <Button color="teal">Read More</Button>
+              <Button color="teal" variant="outlined">
+                Read More
+              </Button>
             </CardFooter>
           </Card>
         ))}

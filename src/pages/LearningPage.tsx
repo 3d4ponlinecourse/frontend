@@ -110,26 +110,26 @@ const LearningPage = () => {
   // ]
 
   const [activeTab, setActiveTab] = React.useState('overview')
-  const data = [
-    {
-      label: 'Overview',
-      value: 'overview',
-      desc: `It really matters and then like it really doesn't matter.
-        What matters is the people who are sparked by it. And the people 
-        who are like offended by it, it doesn't matter.`,
-    },
-    {
-      label: 'Reviews',
-      value: 'reviews',
-      desc: <Reviews />,
-    },
-  ]
-  const [url, setURL] = React.useState('https://www.youtube.com/watch?v=v86OlB4f2QY')
+  //   const data = [
+  //     {
+  //       label: 'Overview',
+  //       value: 'overview',
+  //       desc: `It really matters and then like it really doesn't matter.
+  //         What matters is the people who are sparked by it. And the people
+  //         who are like offended by it, it doesn't matter.`,
+  //     },
+  //     {
+  //       label: 'Reviews',
+  //       value: 'reviews',
+  //       desc: <Reviews />,
+  //     },
+  //   ]
+  const [url, setURL] = React.useState('https://vimeo.com/524933864')
   const [activeLesson, setActiveLesson] = React.useState('')
   return (
-    <div className="flex flex-row gap-8 px-64 justify-between">
+    <div className="flex flex-col lg:flex-row gap-8 px-4 md:px-12 lg:px-64 justify-between">
       <div className="flex flex-col gap-8 w-2/3">
-        <ReactPlayer url={url} />
+        <ReactPlayer url={url} width={640} height={360} controls={true} />
 
         <Tabs value={activeTab}>
           <TabsHeader
@@ -176,24 +176,28 @@ const LearningPage = () => {
           </TabsBody>
         </Tabs>
       </div>
-      <div className="border p-8 rounded-xl overflow-auto max-h-screen">
-        {course &&
-          course.lesson.map((item) => (
-            <>
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-row justify-between ">
-                  <p className="font-bold text-xl text-teal-400">
-                    {item.id}
-                    {'.'}
-                    {item.lessonName}
-                  </p>
-                  <div onClick={() => setURL(item.videoUrl)} key={item.id} className="border-b cursor-pointer">
-                    link
+      <div className="w-1/3">
+        <p className="px-8 py-4 font-bold text-2xl text-teal-400">{course && course.courseName}</p>
+        <div className="border p-8 rounded-xl overflow-auto max-h-screen">
+          {course &&
+            course.lesson.map((item) => (
+              <>
+                <div
+                  onClick={() => {
+                    setURL(item.videoUrl)
+                    setActiveLesson(item.lessonName)
+                  }}
+                  key={item.id}
+                  className="flex flex-col border-b cursor-pointer py-2"
+                >
+                  <div className="flex flex-row justify-between ">
+                    <p className={activeLesson === item.lessonName ? `text-teal-400 w-48` : `w-48`}>
+                      {item.lessonName}
+                    </p>
+                    <p className="text-gray-500">{item.duration}</p>
                   </div>
-                  <p className="text-gray-500">{item.duration}</p>
-                </div>
 
-                {/* <div className="flex flex-col gap-2">
+                  {/* <div className="flex flex-col gap-2">
                   <div
                     onClick={() => setActiveLesson(item.lessonName)}
                     className="flex flex-row justify-between hover:text-teal-400 cursor-pointer"
@@ -204,9 +208,10 @@ const LearningPage = () => {
                     <p className="text-gray-500">{item.duration}</p>
                   </div>
                 </div> */}
-              </div>
-            </>
-          ))}
+                </div>
+              </>
+            ))}
+        </div>
       </div>
     </div>
   )
