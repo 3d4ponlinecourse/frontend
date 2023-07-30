@@ -4,15 +4,18 @@ const useProfile = () => {
   const [user, useUser] = useState()
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [error, setError] = useState(null)
-  const id = localStorage.getItem('userId')
 
   useEffect(() => {
     const fetchData = async () => {
+      const userId = localStorage.getItem('userId')
+      const token = localStorage.getItem('token')
       setIsLoading(true)
       try {
-        const res = await fetch(`http://localhost:8000/user/enroll/${id}`)
+        const res = await fetch(`http://localhost:8000/user/enroll/${userId}`, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        })
         const data = await res.json()
-        console.log(data)
         useUser(data)
       } catch (err: any) {
         setError(err.message)
@@ -20,7 +23,6 @@ const useProfile = () => {
         setIsLoading(false)
       }
     }
-    console.log(localStorage.getItem('userid'))
     fetchData()
   }, [])
 

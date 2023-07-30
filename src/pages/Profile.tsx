@@ -1,15 +1,15 @@
 import React from 'react'
 import { useState } from 'react'
 import Editprofile from '../components/Profile/Editprofile'
-import Loading from './Loading'
 import CurrentCourse from '../components/Profile/CurrentCourse'
-import useProfile from '../้hook/useUser'
+import useProfile from '../hooks/useProfile'
+import Loading from './Loading'
 
 export const Profile = () => {
   const [component, setComponent] = useState<number>(0)
-  const { userInfo, isLoading } = useProfile()
-  console.log(userInfo)
-  if (isLoading || !userInfo) return <Loading />
+  const { user, isLoading } = useProfile()
+  console.log(user)
+  if (isLoading || !user) return <Loading />
 
   return (
     <div className="flex items-start w-full px-8 m-5 gap-8">
@@ -19,7 +19,10 @@ export const Profile = () => {
             <div>
               <img src="download.jpg" className="rounded-full w-40 h-40"></img>
             </div>
-            <h2 className=" font-bold">{userInfo.username}</h2>
+            <h2 className=" font-bold">
+              {user['firstname']}
+              {user['lastname']}
+            </h2>
           </div>
         </div>
         <div className="flex-col justify-start">
@@ -34,7 +37,7 @@ export const Profile = () => {
         </div>
       </div>
       <div className="w-full">
-        {component === 0 ? <CurrentCourse user={userInfo} /> : null}
+        {component === 0 ? <CurrentCourse user={user} /> : null}
         {component === 1 ? <Editprofile /> : null}
       </div>
     </div>
