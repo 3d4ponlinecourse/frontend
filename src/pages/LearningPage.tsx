@@ -176,12 +176,12 @@ const LearningPage = () => {
           </TabsBody>
         </Tabs>
       </div>
-      <div className="border p-8 rounded-xl overflow-auto max-h-screen">
+      <div className="border p-10   rounded-xl overflow-auto max-h-screen">
         {course &&
           course.lesson.map((item) => (
             <>
-              <div className="flex flex-col gap-4">
-                <div className="flex flex-row justify-between ">
+              <div className="flex flex-col gap-5">
+                <div className="flex flex-row justify-between w-9">
                   <p className="font-bold text-xl text-teal-400">
                     {item.id}
                     {'.'}

@@ -63,7 +63,9 @@ const Reviews = () => {
             <h2 className="font-bold text-lg">Write your review here.</h2>
             <Textarea color="teal" label="Message" />
             <Rating value={5} unratedColor="teal" ratedColor="teal" />
-            <Button color="teal">Submit</Button>
+            <Button color="teal" type="submit">
+              Submit
+            </Button>
           </div>
         </Dialog>
       </div>
