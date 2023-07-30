@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
-import { IUserWithEnrollment } from '../../types/enrollment'
 import React from 'react'
+import { IUserWithEnrollment } from '../../types/enrollment'
+import { Link } from 'react-router-dom'
 
 export interface UserCourseProps {
   user: IUserWithEnrollment
@@ -24,9 +24,6 @@ const CurrentCourse = ({ user }: UserCourseProps) => {
               01 - Introduction to 3D modelling
             </a>
           </div>
-          <div className="radial-progress" style={{ '--value': 75 }}>
-            75%
-          </div>
           <div className="flex items-center">
             <button className="border border-black p-2 rounded-3xl text-xs w-36 col-end-6">Resume Learning</button>
           </div>
@@ -37,16 +34,12 @@ const CurrentCourse = ({ user }: UserCourseProps) => {
           <div className="grid grid-cols-6 grid-rows-1 gap-4">
             <div className="flex flex-col col-start-1 col-span-3 ... p-2 ">
               <h4 className="flex justify-start">Course</h4>
-              <Link to={`/learning`}>
+              <Link to={`/learn`}>
                 <button className="flex justify-start font-bold">{user.enrollment[0].courseName}</button>
-                <button className="flex justify-start font-bold">Lesson Name</button>
               </Link>
             </div>
-            <div className="radial-progress" style={{ '--value': 75 }}>
-              {}
-            </div>
             <div className="flex items-center">
-              <Link to={`/learning`}>
+              <Link to={`/learn`}>
                 <button className="border border-black p-2 rounded-3xl text-xs w-36 col-end-6">Resume Learning</button>
               </Link>
             </div>

@@ -4,9 +4,8 @@ import { useNavigate } from 'react-router-dom'
 
 const EnrollCourse = () => {
   const navigate = useNavigate()
-  const [id, setId] = useState<number>(0)
   const [userid, setUserId] = useState<string>()
-  const [courseid, setCourseId] = useState<number>(0)
+  const [courseid, setCourseId] = useState<number>()
   const [courseName, setCourseName] = useState<string>()
 
   const handleEnroll = async (e: FormEvent) => {
@@ -21,7 +20,6 @@ const EnrollCourse = () => {
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
-          id,
           userid,
           courseid,
           courseName,
@@ -40,8 +38,7 @@ const EnrollCourse = () => {
       className="flex flex-col gap-6 max-w-lg bg-gray-100 rounded-xl mx-auto my-14 py-5 px-7"
     >
       <div className="flex flex-col gap-2">
-        <label>ID:</label>
-        <input className="p-3 rounded" type="number" value={id} onChange={() => setId()} required />
+      
       </div>
       <div className="flex flex-col gap-2">
         <label>UserID:</label>
@@ -59,7 +56,7 @@ const EnrollCourse = () => {
           className="p-3 rounded"
           type="number"
           value={courseid}
-          onChange={(e) => setCourseId(e.target.value)}
+          onChange={(number) => setCourseId(courseid)}
           required
         />
       </div>

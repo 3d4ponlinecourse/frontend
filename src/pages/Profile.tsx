@@ -1,16 +1,14 @@
-import { useState } from 'react'
 import React from 'react'
+import { useState } from 'react'
 import Editprofile from '../components/profile/Editprofile'
+import useProfile from '../hooks/useProfile'
 import Loading from '../components/Loading'
-import { useParams } from 'react-router-dom'
-import useUser from '../hooks/useUser'
 import CurrentCourse from '../components/profile/CurrentCourse'
 
 export const Profile = () => {
-  const { id } = useParams()
-  const [component, setComponent] = useState(0)
-  const { user, isLoading, error } = useUser(id || ``)
-
+  const [component, setComponent] = useState<number>(0)
+  const { user, isLoading } = useProfile()
+  console.log(user)
   if (isLoading || !user) return <Loading />
 
   return (
@@ -21,8 +19,10 @@ export const Profile = () => {
             <div>
               <img src="download.jpg" className="rounded-full w-40 h-40"></img>
             </div>
-            <h2 className=" font-bold">Userman</h2>
-            {/* <h2 className=' font-bold'>{user.username}</h2> */}
+            <h2 className=" font-bold">
+              {user['firstname']}
+              {user['lastname']}
+            </h2>
           </div>
         </div>
         <div className="flex-col justify-start">
