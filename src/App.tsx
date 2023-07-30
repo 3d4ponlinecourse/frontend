@@ -10,6 +10,7 @@ import React from 'react'
 import LearningPage from './pages/LearningPage'
 import Profile from './pages/Profile'
 import { Toaster } from 'react-hot-toast'
+import EnrollCourse from './pages/user/EnrollCourse'
 
 function App() {
   const { isLoggedIn } = useAuth()
@@ -30,6 +31,7 @@ function App() {
         <Route element={<GuardedRoute isRouteAccessible={isLoggedIn} redirectRoute="/login" />}>
           <Route path="/learn/:id" element={<LearningPage />} />
           <Route path="/profile/:userId" element={<Profile />} />
+          <Route path="/enroll/:userId" element={<EnrollCourse />} />
         </Route>
       </Routes>
     </div>
