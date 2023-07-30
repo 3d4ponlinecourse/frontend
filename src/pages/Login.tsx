@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProvider'
 import { FormEvent, useState } from 'react'
 import { toast } from 'react-hot-toast'
@@ -8,7 +7,6 @@ import React from 'react'
 
 const Login = () => {
   const { login } = useAuth()
-  const navigate = useNavigate()
   const [usernameInput, setUsernameInput] = useState<string>('')
   const [passwordInput, setPasswordInput] = useState<string>('')
 
@@ -19,7 +17,6 @@ const Login = () => {
       await login(usernameInput, passwordInput)
 
       toast.success('Logged In!')
-      navigate('/profile')
     } catch (err: any) {
       console.log(err)
       toast.error(err.message)

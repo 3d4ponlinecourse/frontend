@@ -15,7 +15,6 @@ interface IAuthContext {
     gender: string,
   ) => Promise<void>
   logout: () => void
-  id: string | null
 }
 
 const AuthContext = createContext<IAuthContext | null>(null)
@@ -30,12 +29,11 @@ export const useAuth = () => {
 
 const token = localStorage.getItem('token')
 const user = localStorage.getItem('user')
-const userId = localStorage.getItem('userid')
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!token)
   const [username, setUsername] = useState<string | null>(user)
-  const [id, setUserId] = useState<string | null>(userId)
+  // const [userId, setUserId] = useState<string | null>(userId)
   const navigate = useNavigate()
 
   const login = async (username: string, password: string) => {
@@ -57,8 +55,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       localStorage.setItem('user', username)
       setIsLoggedIn(true)
       setUsername(username)
-      setUserId(id)
-      navigate(`/profile/:id`)
+      navigate(`/profile/${data.userId}`)
     } catch (err: any) {
       throw new Error(err.message)
     }
@@ -97,13 +94,10 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     localStorage.removeItem('userId')
     setIsLoggedIn(false)
     setUsername(null)
-    setUserId(null)
   }
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout, username, register, id }}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={{ isLoggedIn, login, logout, username, register }}>{children}</AuthContext.Provider>
   )
 }
 
