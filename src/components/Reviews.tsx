@@ -1,5 +1,5 @@
 import { Button, Dialog, Rating, Textarea } from "@material-tailwind/react";
-import React from "react";
+import React, { useState } from "react";
 import useCourse from "../hooks/useCourse";
 import { useParams } from "react-router-dom";
 import Loading from "./Loading";
@@ -22,11 +22,9 @@ import Loading from "./Loading";
 // ];
 
 const Reviews = () => {
-  const handleOpen = () => setOpen(!open);
-
   const { id } = useParams();
+
   const { course, error, isLoading } = useCourse(Number(id));
-  const [open, setOpen] = React.useState(false);
 
   console.log(course);
 
@@ -70,7 +68,7 @@ const Reviews = () => {
 
         {course?.comment.map((item) => (
           <div
-            key={item.courseId}
+            key={String(item.createdAt)}
             className="flex flex-col gap-2 border-2 p-2 rounded-lg"
           >
             <p className="font-bold text-lg">{item.username}</p>
@@ -87,7 +85,7 @@ const Reviews = () => {
             {/* <p className="text-gray-500">reviewed at {date.toString()}</p> */}
           </div>
         ))}
-        <Button color="teal" onClick={handleOpen} variant="gradient">
+        {/* <Button color="teal" onClick={handleOpen} variant="gradient">
           Review this course
         </Button>
         <Dialog open={open} handler={handleOpen}>
@@ -99,7 +97,7 @@ const Reviews = () => {
               Submit
             </Button>
           </div>
-        </Dialog>
+        </Dialog> */}
       </div>
     </div>
   );
