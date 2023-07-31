@@ -1,24 +1,18 @@
+import { Button, Input } from '@material-tailwind/react'
 import React from 'react'
 
 const Editprofile = () => {
   return (
     <div>
-      <body className="bg-teal-950">
-        <div className="flex place-content-center bg-zinc-600">
-          For Profile Content
-          <div className="font bold text-xl">
-            Edit Your Profile here
-            <div className="grid gap-3 mb-6 text-base">
-              <input className="" type="text" placeholder="Firstname" />
-              <input type="text" placeholder="Lastname" />
-              <input type="email" placeholder="Email" />
-            </div>
-            <div className="bg-teal-400 hover:bg-teal-950 text-white font-bold py-2 rounded-full indent-2">
-              <button>Save Change</button>
-            </div>
-          </div>
-        </div>
-      </body>
+      <h2 className="text-3xl font-bold">
+        Edit Profile<span className="text-teal-400">.</span>
+      </h2>
+      <div className="grid gap-3 py-4 w-1/2 text-base ">
+        <Input color="teal" type="text" label="Firstname" />
+        <Input color="teal" type="text" label="Lastname" />
+        <Input color="teal" type="email" label="Email" />
+      </div>
+      <Button color="teal">Save Change</Button>
     </div>
   )
 }

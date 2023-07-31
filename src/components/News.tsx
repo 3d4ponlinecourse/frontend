@@ -22,12 +22,12 @@ const Content: IContent[] = [
     topic: 'Adobe live - Substance 3D tools',
     body: "Get ready for a new kind of livestream: In collaboration with Adobe we've setup a two part Zelda-inspired livestream",
   },
-  // {
-  //   id: 3,
-  //   date: 'MAY 3, 2023',
-  //   topic: 'Star Wars art challenge: Reimagine a classic Star Wars character in 3D and May the 4th be with you',
-  //   body: "Hey guys! We're thrilled to announce our latest online art challenge. Get ready to unleash your creativity and let your imagination run wild!",
-  // },
+  {
+    id: 3,
+    date: 'MAY 3, 2023',
+    topic: 'Star Wars art challenge: Reimagine a classic Star Wars character in 3D and May the 4th be with you',
+    body: "Hey guys! We're thrilled to announce our latest online art challenge. Get ready to unleash your creativity and let your imagination run wild!",
+  },
   // {
   //   id: 4,
   //   date: 'MAY 2, 2023',
@@ -53,7 +53,7 @@ const News = () => {
       <div className="flex flex-row gap-4 flex-wrap md:flex-nowrap">
         {Content.map((item) => (
           <Card key={item.id} className="w-auto bg-neutral-300">
-            <CardBody>
+            <CardBody className="">
               <div className="pb-2">
                 <Typography>{item.date}</Typography>
               </div>
