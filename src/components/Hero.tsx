@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 // const group = useRef()
 const Model = (props: any): any => {
-  const { scene, animations } = useGLTF('/Benz.glb')
+  const { scene } = useGLTF('/Benz.glb')
   // const { actions } = useAnimations(animations, group)
   return <primitive object={scene} {...props} />
 }
