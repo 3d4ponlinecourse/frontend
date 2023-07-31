@@ -59,7 +59,7 @@ const About = () => {
 
         <img
           className="w-64 h-full md:w-80 rounded-xl order-first"
-          // src="https://media4.giphy.com/media/3o85gaCV88we8SYJOM/giphy.gif?cid=ecf05e47l1zf1p7bz2xruv1vu0xfc6xdwaib1lf7zhuy3va7&ep=v1_gifs_search&rid=giphy.gif&ct=g"
+          // src="https://media1.giphy.com/media/l0HeeIlWnhFoRac4o/giphy.gif?cid=ecf05e472fji1zcznr5y5uirn8xqoh8taakhtjjcr8idonad&ep=v1_gifs_search&rid=giphy.gif&ct=g"
           src="https://blenderartists.org/uploads/default/original/4X/4/2/7/427fd35ed1d3368b26797507889c5d938cd4186f.png"
         />
       </div>

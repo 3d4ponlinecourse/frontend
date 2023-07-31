@@ -1,4 +1,4 @@
-import { PerspectiveCamera, PresentationControls, Stage, useGLTF } from '@react-three/drei'
+import { Loader, PerspectiveCamera, PresentationControls, Stage, useGLTF } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import React, { Suspense } from 'react'
 import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
@@ -63,6 +63,7 @@ const Hero = () => {
             </PresentationControls>
           </Suspense>
         </Canvas>
+        <Loader />
       </div>
     </div>
   )
