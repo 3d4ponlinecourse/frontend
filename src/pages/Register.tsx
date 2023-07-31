@@ -36,7 +36,7 @@ const Register = () => {
       await login(usernameInput, passwordInput)
 
       toast.success('Registered and Login!')
-      navigate('/login')
+      navigate('/')
     } catch (err: any) {
       console.log(err)
       toast.error(err.message)

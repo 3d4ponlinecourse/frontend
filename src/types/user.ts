@@ -1,7 +1,7 @@
 enum Gender {
   FEMALE = 'FEMALE',
   MALE = 'MALE',
-  LGBTQ = 'LGBTQIA+',
+  LGBTQ = 'LGBTQ',
   PREFERNOTTOSAY = 'PREFER NOT TO SAY',
 }
 

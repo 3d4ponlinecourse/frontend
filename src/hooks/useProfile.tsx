@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
+import { IUserWithEnrollment } from '../types/enrollment'
 
 const useProfile = () => {
-  const [user, useUser] = useState()
+  const [user, useUser] = useState<IUserWithEnrollment>()
   const [isLoading, setIsLoading] = useState<boolean>(false)
   const [error, setError] = useState(null)
 

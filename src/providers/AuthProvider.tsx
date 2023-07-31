@@ -33,7 +33,6 @@ const user = localStorage.getItem('user')
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!token)
   const [username, setUsername] = useState<string | null>(user)
-  // const [userId, setUserId] = useState<string | null>(userId)
   const navigate = useNavigate()
 
   const login = async (username: string, password: string) => {
@@ -53,6 +52,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       localStorage.setItem('userId', data.userId)
       localStorage.setItem('token', data.accessToken)
       localStorage.setItem('user', username)
+
       setIsLoggedIn(true)
       setUsername(username)
       navigate(`/profile/${data.userId}`)
@@ -73,7 +73,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const registerBody = { email, username, firstname, lastname, password, conpassword, gender }
 
     try {
-      const res = await fetch('http://localhost:8000/register', {
+      const res = await fetch('http://localhost:8000/user/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(registerBody),

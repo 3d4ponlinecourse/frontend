@@ -22,12 +22,12 @@ const Content: IContent[] = [
     topic: 'Adobe live - Substance 3D tools',
     body: "Get ready for a new kind of livestream: In collaboration with Adobe we've setup a two part Zelda-inspired livestream",
   },
-  // {
-  //   id: 3,
-  //   date: 'MAY 3, 2023',
-  //   topic: 'Star Wars art challenge: Reimagine a classic Star Wars character in 3D and May the 4th be with you',
-  //   body: "Hey guys! We're thrilled to announce our latest online art challenge. Get ready to unleash your creativity and let your imagination run wild!",
-  // },
+  {
+    id: 3,
+    date: 'MAY 3, 2023',
+    topic: 'Star Wars art challenge: Reimagine a classic Star Wars character in 3D and May the 4th be with you',
+    body: "Hey guys! We're thrilled to announce our latest online art challenge. Get ready to unleash your creativity and let your imagination run wild!",
+  },
   // {
   //   id: 4,
   //   date: 'MAY 2, 2023',
@@ -39,7 +39,7 @@ const Content: IContent[] = [
 const News = () => {
   return (
     <div className="px-4 md:px-12 lg:px-64 py-8 lg:py-32 flex flex-col gap-12">
-      <div className="flex flex row justify-between items-end ">
+      <div className="flex flex-row justify-between items-end ">
         <div className="flex flex-row items-center gap-2">
           <span className="text-teal-400">
             <BiNews size={36} />
@@ -53,7 +53,7 @@ const News = () => {
       <div className="flex flex-row gap-4 flex-wrap md:flex-nowrap">
         {Content.map((item) => (
           <Card key={item.id} className="w-auto bg-neutral-300">
-            <CardBody>
+            <CardBody className="">
               <div className="pb-2">
                 <Typography>{item.date}</Typography>
               </div>
@@ -64,7 +64,9 @@ const News = () => {
               <Typography>{item.body}</Typography>
             </CardBody>
             <CardFooter className="pt-0">
-              <Button color="teal">Read More</Button>
+              <Button color="teal" variant="outlined">
+                Read More
+              </Button>
             </CardFooter>
           </Card>
         ))}

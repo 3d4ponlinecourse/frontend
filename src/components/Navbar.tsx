@@ -1,6 +1,8 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../providers/AuthProvider'
 import React from 'react'
+import { Button, Menu, MenuHandler, MenuItem, MenuList } from '@material-tailwind/react'
+import useProfile from '../hooks/useProfile'
 
 interface INavItem {
   name: string
@@ -15,8 +17,15 @@ const NavItem: INavItem[] = [
 ]
 
 const Navbar = () => {
+  const { user } = useProfile()
   const { isLoggedIn, logout } = useAuth()
 
+  const navigate = useNavigate()
+
+  const handleNavigate = (userId: string) => {
+    navigate(`/profile/${userId}`)
+  }
+  // console.log(user)
   return (
     <nav className=" flex flex-col px-4 md:px-12 lg:px-40 bg-neutral-900 sticky top-0 z-50">
       <div className="flex flex-wrap items-center justify-between p-4">
@@ -38,16 +47,26 @@ const Navbar = () => {
         </Link>
 
         <ul className="flex flex-row gap-16 font-bold text-sm">
-          {NavItem.map((item) => (
+          {/* {NavItem.map((item) => (
             <li className="hover:text-teal-400 hover:cursor-pointer" key={item.name}>
               {item.name}
             </li>
-          ))}
+          ))} */}
           <li>
             {isLoggedIn ? (
-              <button onClick={logout} className="">
-                Log out
-              </button>
+              <Menu>
+                <MenuHandler>
+                  <Button color="teal" className="rounded-full">
+                    {user && user['firstname']}
+                  </Button>
+                </MenuHandler>
+                <MenuList>
+                  <MenuItem>
+                    <p onClick={() => handleNavigate(user['firstname'])}>Profile</p>
+                  </MenuItem>
+                  <MenuItem onClick={logout}>Log out</MenuItem>
+                </MenuList>
+              </Menu>
             ) : (
               <Link
                 to="/login"

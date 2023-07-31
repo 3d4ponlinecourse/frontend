@@ -9,25 +9,28 @@ import LearningPage from './pages/LearningPage'
 import Profile from './pages/Profile'
 import Login from './pages/Login'
 import Register from './pages/Register'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   const { isLoggedIn } = useAuth()
 
   return (
     <div className="bg-white">
+      <Toaster position="top-center" />
       <Navbar />
 
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route element={<GuardedRoute isRouteAccessible={!isLoggedIn} redirectRoute="/" />}>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+
           {/* <Route path="/contentcourse" element={<ContentCourse />} /> */}
         </Route>
-        <Route element={<GuardedRoute isRouteAccessible={isLoggedIn} redirectRoute="/" />}>
-          <Route path="/learn" element={<LearningPage />} />
+        <Route element={<GuardedRoute isRouteAccessible={isLoggedIn} redirectRoute="/login" />}>
+          <Route path="/learn/:id" element={<LearningPage />} />
           <Route path="/profile/:userId" element={<Profile />} />
         </Route>
-        <Route path="/" element={<Home />} />
       </Routes>
     </div>
   )

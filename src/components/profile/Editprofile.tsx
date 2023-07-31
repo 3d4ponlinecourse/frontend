@@ -1,5 +1,6 @@
-import React from 'react'
+import { Button, Input } from '@material-tailwind/react'
 import { FormEvent, useEffect, useState } from 'react'
+import React from 'react'
 import { toast } from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
 import useProfile from '../../hooks/useProfile'
@@ -50,24 +51,16 @@ const Editprofile = () => {
   }
 
   return (
-    <div className="flex flex-col gap-2 w-1/2">
-      <div className="text-center font-bold text-xls">
-        Edit Your Profile here
-        <div className="flex flex-col gap-6 rounded-xl my-14 py-5 px-7 indent-1">
-          <input className="" type="text" placeholder="Firstname" />
-          <input type="text" placeholder="Lastname" />
-          <input type="email" placeholder="Email" />
-          <div className="form-control w-full max-w-xs">
-            <label className="label">
-              <span className="label-text">Picture</span>
-            </label>
-            <input type="file" className="file-input file-input-bordered w-full max-w-xs" />
-          </div>
-        </div>
-        <div className="bg-teal-400 hover:bg-teal-950 text-center text-white font-bold py-2 rounded-full indent-2 my-0.5">
-          <button>Save Change</button>
-        </div>
+    <div>
+      <h2 className="text-3xl font-bold">
+        Edit Profile<span className="text-teal-400">.</span>
+      </h2>
+      <div className="grid gap-3 py-4 w-1/2 text-base ">
+        <Input color="teal" type="text" label="Firstname" />
+        <Input color="teal" type="text" label="Lastname" />
+        <Input color="teal" type="email" label="Email" />
       </div>
+      <Button color="teal">Save Change</Button>
     </div>
   )
 }

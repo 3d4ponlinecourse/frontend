@@ -32,6 +32,7 @@ const Login = () => {
           color="teal"
           label="Username"
           onChange={(e) => setUsernameInput(e.target.value)}
+          required
         />
       </div>
       <div className="flex flex-col gap-2">
@@ -41,10 +42,11 @@ const Login = () => {
           color="teal"
           label="Password"
           onChange={(e) => setPasswordInput(e.target.value)}
+          required
         />
       </div>
       <div className=" text-blue-600 underline"></div>
-      <Button type="submit" value="submit" color="teal" className="">
+      <Button type="submit" value="submit" color="teal">
         Login
       </Button>
 
