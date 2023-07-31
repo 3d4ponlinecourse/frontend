@@ -1,15 +1,36 @@
-import { Button, Dialog, Rating, Textarea } from '@material-tailwind/react'
-import React from 'react'
+import { Button, Dialog, Rating, Textarea } from "@material-tailwind/react";
+import React, { useState } from "react";
+import useCourse from "../hooks/useCourse";
+import { useParams } from "react-router-dom";
+import Loading from "./Loading";
 
-const review = [
-  { id: 1, author: 'wave', comment: 'This course is so good', star: 5, date: '12/12/12' },
-  { id: 2, author: 'shinn', comment: 'This course is so noob', star: 3, date: '13/12/11' },
-]
+// const review = [
+//   {
+//     id: 1,
+//     author: "wave",
+//     comment: "This course is so good",
+//     star: 5,
+//     date: "12/12/12",
+//   },
+//   {
+//     id: 2,
+//     author: "shinn",
+//     comment: "This course is so noob",
+//     star: 3,
+//     date: "13/12/11",
+//   },
+// ];
 
 const Reviews = () => {
-  const [open, setOpen] = React.useState(false)
+  const { id } = useParams();
 
-  const handleOpen = () => setOpen(!open)
+  const { course, error, isLoading } = useCourse(Number(id));
+
+  console.log(course);
+
+  if (!course || isLoading) return <Loading />;
+  if (error) return <h1>{error}</h1>;
+
   return (
     <div className="flex flex-col gap-8 ">
       {/* <div className="flex flex-row items-center gap-8">
@@ -44,18 +65,27 @@ const Reviews = () => {
         </div> */}
       <div className="flex flex-col gap-4">
         <h3 className="font-bold text-xl">Reviews</h3>
-        {review.map((item) => (
-          <div key={item.id} className="flex flex-col gap-2 border-2 p-2 rounded-lg">
-            <p className="font-bold text-lg">{item.author}</p>
+
+        {course?.comment.map((item) => (
+          <div
+            key={String(item.createdAt)}
+            className="flex flex-col gap-2 border-2 p-2 rounded-lg"
+          >
+            <p className="font-bold text-lg">{item.username}</p>
             <div>
-              <Rating value={item.star} readonly unratedColor="teal" ratedColor="teal" />
+              <Rating
+                value={item.rating}
+                readonly
+                unratedColor="teal"
+                ratedColor="teal"
+              />
               <p>{item.comment}</p>
             </div>
 
-            <p className="text-gray-500">reviewed at {item.date}</p>
+            {/* <p className="text-gray-500">reviewed at {date.toString()}</p> */}
           </div>
         ))}
-        <Button color="teal" onClick={handleOpen} variant="gradient">
+        {/* <Button color="teal" onClick={handleOpen} variant="gradient">
           Review this course
         </Button>
         <Dialog open={open} handler={handleOpen}>
@@ -67,10 +97,10 @@ const Reviews = () => {
               Submit
             </Button>
           </div>
-        </Dialog>
+        </Dialog> */}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Reviews
+export default Reviews;

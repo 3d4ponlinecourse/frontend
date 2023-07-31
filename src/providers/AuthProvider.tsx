@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 
 interface IAuthContext {
   isLoggedIn: boolean
@@ -33,7 +32,6 @@ const user = localStorage.getItem('user')
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!token)
   const [username, setUsername] = useState<string | null>(user)
-  const navigate = useNavigate()
 
   const login = async (username: string, password: string) => {
     const loginInfo = { username, password }
@@ -49,13 +47,11 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       }
       const data = await res.json()
 
-      localStorage.setItem('userId', data.userId)
       localStorage.setItem('token', data.accessToken)
       localStorage.setItem('user', username)
-
+      localStorage.setItem('userId', data.userId)
       setIsLoggedIn(true)
       setUsername(username)
-      navigate(`/profile/${data.userId}`)
     } catch (err: any) {
       throw new Error(err.message)
     }
@@ -70,7 +66,15 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     conpassword: string,
     gender: string,
   ) => {
-    const registerBody = { email, username, firstname, lastname, password, conpassword, gender }
+    const registerBody = {
+      email,
+      username,
+      firstname,
+      lastname,
+      password,
+      conpassword,
+      gender,
+    }
 
     try {
       const res = await fetch('http://localhost:8000/user/register', {
@@ -91,7 +95,6 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const logout = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
-    localStorage.removeItem('userId')
     setIsLoggedIn(false)
     setUsername(null)
   }

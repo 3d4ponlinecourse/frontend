@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
 import Reviews from '../components/Reviews'
+import PostReviews from '../components/PostReviews'
 import { Tabs, TabsHeader, TabsBody, Tab, TabPanel } from '@material-tailwind/react'
 import Outcome from '../components/Outcome'
 import useCourse from '../hooks/useCourse'
@@ -110,22 +111,25 @@ const LearningPage = () => {
   // ]
 
   const [activeTab, setActiveTab] = React.useState('overview')
-  //   const data = [
-  //     {
-  //       label: 'Overview',
-  //       value: 'overview',
-  //       desc: `It really matters and then like it really doesn't matter.
-  //         What matters is the people who are sparked by it. And the people
-  //         who are like offended by it, it doesn't matter.`,
-  //     },
-  //     {
-  //       label: 'Reviews',
-  //       value: 'reviews',
-  //       desc: <Reviews />,
-  //     },
-  //   ]
-  const [url, setURL] = React.useState('https://vimeo.com/524933864')
+  // const data = [
+  //   {
+  //     label: "Overview",
+  //     value: "overview",
+  //     desc: `It really matters and then like it really doesn't matter.
+  //       What matters is the people who are sparked by it. And the people
+  //       who are like offended by it, it doesn't matter.`,
+  //   },
+  //   {
+  //     label: "Reviews",
+  //     value: "reviews",
+  //     desc: <Reviews />,
+  //   },
+  // ];
+  const [url, setURL] = React.useState('https://www.youtube.com/watch?v=v86OlB4f2QY')
   const [activeLesson, setActiveLesson] = React.useState('')
+
+  if (!course || !id) return <p>Failed to comment</p>
+
   return (
     <div className="flex flex-col lg:flex-row gap-8 px-4 md:px-12 lg:px-64 justify-between">
       <div className="flex flex-col gap-8 w-2/3">
@@ -169,6 +173,7 @@ const LearningPage = () => {
             </TabPanel>
             <TabPanel key="reviews" value="reviews">
               <Reviews />
+              <PostReviews courseId={course.id} />
             </TabPanel>
             <TabPanel key="outcome" value="outcome">
               <Outcome />
