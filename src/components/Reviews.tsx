@@ -1,8 +1,8 @@
-import { Button, Dialog, Rating, Textarea } from "@material-tailwind/react";
-import React, { useState } from "react";
-import useCourse from "../hooks/useCourse";
-import { useParams } from "react-router-dom";
-import Loading from "./Loading";
+import { Rating } from '@material-tailwind/react'
+import React from 'react'
+import useCourse from '../hooks/useCourse'
+import { useParams } from 'react-router-dom'
+import Loading from './Loading'
 
 // const review = [
 //   {
@@ -22,14 +22,14 @@ import Loading from "./Loading";
 // ];
 
 const Reviews = () => {
-  const { id } = useParams();
+  const { id } = useParams()
 
-  const { course, error, isLoading } = useCourse(Number(id));
+  const { course, error, isLoading } = useCourse(Number(id))
 
-  console.log(course);
+  console.log(course)
 
-  if (!course || isLoading) return <Loading />;
-  if (error) return <h1>{error}</h1>;
+  if (!course || isLoading) return <Loading />
+  if (error) return <h1>{error}</h1>
 
   return (
     <div className="flex flex-col gap-8 ">
@@ -67,18 +67,10 @@ const Reviews = () => {
         <h3 className="font-bold text-xl">Reviews</h3>
 
         {course?.comment.map((item) => (
-          <div
-            key={String(item.createdAt)}
-            className="flex flex-col gap-2 border-2 p-2 rounded-lg"
-          >
+          <div key={String(item.createdAt)} className="flex flex-col gap-2 border-2 p-2 rounded-lg">
             <p className="font-bold text-lg">{item.username}</p>
             <div>
-              <Rating
-                value={item.rating}
-                readonly
-                unratedColor="teal"
-                ratedColor="teal"
-              />
+              <Rating value={item.rating} readonly unratedColor="teal" ratedColor="teal" />
               <p>{item.comment}</p>
             </div>
 
@@ -100,7 +92,7 @@ const Reviews = () => {
         </Dialog> */}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Reviews;
+export default Reviews
