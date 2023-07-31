@@ -27,8 +27,11 @@ export const Profile = () => {
             </div>
             <div className="flex flex-col ">
               {' '}
-              <h2 className="font-bold">{user['firstname']}</h2>
-              <h2 className="font-bold">{user['lastname']}</h2>
+              <p className="font-bold text-sm">Username: {user['username']}</p>
+              <p className="font-bold text-sm">Firstname: {user['firstname']}</p>
+              <p className="font-bold text-sm">Lastname: {user['lastname']}</p>
+              <p className="font-bold text-sm">Email: {user['email']}</p>
+              <p className="font-bold text-sm">Gender: {user['gender']}</p>
             </div>
           </div>
         </div>
