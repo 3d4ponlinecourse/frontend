@@ -25,9 +25,9 @@ function App() {
         </Route>
         <Route element={<GuardedRoute isRouteAccessible={isLoggedIn} redirectRoute="/" />}>
           <Route path="/learn" element={<LearningPage />} />
+          <Route path="/profile/:userId" element={<Profile />} />
         </Route>
         <Route path="/" element={<Home />} />
-        <Route path="/profile/:userId" element={<Profile />} />
       </Routes>
     </div>
   )
