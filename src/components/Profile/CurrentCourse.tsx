@@ -1,50 +1,25 @@
 import React from 'react'
+import CurrentCourseList from './CurrentCourseList'
 import { IUserWithEnrollment } from '../../types/enrollment'
-import { Link } from 'react-router-dom'
+import Nonenroll from './Nonenroll'
 
-export interface UserCourseProps {
+export interface ICurrentCourseProps {
   user: IUserWithEnrollment
 }
 
-const CurrentCourse = ({ user }: UserCourseProps) => {
+const CurrentCourse = ({ user }: ICurrentCourseProps) => {
   return (
     <div className="">
       <div className="flex justify-between items-center">
         <p className="text-3xl font-bold">Lasted Courses</p>
         <button className="text-s font-medium">SEE ALL</button>
       </div>
-      <div className="p-3 m-5 border border-black rounded-3xl">
-        <div className="grid grid-cols-6 grid-rows-1 gap-4">
-          <div className="flex flex-col col-start-1 col-span-3 ... p-2 ">
-            <h4 className="flex justify-start">Course</h4>
-            <a href="" className="flex justify-start font-bold">
-              3D Fundamental
-            </a>
-            <a href="" className="flex justify-start font-bold">
-              01 - Introduction to 3D modelling
-            </a>
-          </div>
-          <div className="flex items-center">
-            <button className="border border-black p-2 rounded-3xl text-xs w-36 col-end-6">Resume Learning</button>
-          </div>
-        </div>
-      </div>
       <div>
-        <div className="p-3 m-5 border border-black rounded-3xl">
-          <div className="grid grid-cols-6 grid-rows-1 gap-4">
-            <div className="flex flex-col col-start-1 col-span-3 ... p-2 ">
-              <h4 className="flex justify-start">Course</h4>
-              <Link to={`/learn`}>
-                <button className="flex justify-start font-bold">{user.enrollment[0].courseName}</button>
-              </Link>
-            </div>
-            <div className="flex items-center">
-              <Link to={`/learn`}>
-                <button className="border border-black p-2 rounded-3xl text-xs w-36 col-end-6">Resume Learning</button>
-              </Link>
-            </div>
-          </div>
-        </div>
+        {user.enrollment.length === 0 ? (
+          <Nonenroll />
+        ) : (
+          user.enrollment.map((enrollment) => <CurrentCourseList key={enrollment.courseName} enrollment={enrollment} />)
+        )}
       </div>
     </div>
   )
