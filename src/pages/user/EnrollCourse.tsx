@@ -38,9 +38,7 @@ const EnrollCourse = () => {
       onSubmit={handleEnroll}
       className="flex flex-col gap-6 max-w-lg bg-gray-100 rounded-xl mx-auto my-14 py-5 px-7"
     >
-      <div className="flex flex-col gap-2">
-      
-      </div>
+      <div className="flex flex-col gap-2"></div>
       <div className="flex flex-col gap-2">
         <label>UserID:</label>
         <input
