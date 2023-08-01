@@ -6,11 +6,13 @@ import Loading from './Loading'
 import { AiOutlineClockCircle } from 'react-icons/ai'
 import useProfile from '../hooks/useProfile'
 import { toast } from 'react-hot-toast'
+import { useAuth } from '../providers/AuthProvider'
 
 const EnrollCard = () => {
   const { courselist, error, isLoading } = useCourselist()
   const { user } = useProfile()
   const navigate = useNavigate()
+  const { isLoggedIn } = useAuth()
 
   const enroll = async (userId: string | undefined, courseId: number, courseName: string) => {
     const enrollBody = { userId, courseId, courseName }
@@ -47,7 +49,11 @@ const EnrollCard = () => {
     }
   }
 
-  console.log(user?.enrollment.length)
+  console.log(user)
+  console.log(isLoggedIn)
+
+  // console.log(user?.enrollment.length)
+
   const userEnrollmentArr: string[] = []
   const enrollmentLen = user?.enrollment.length
   for (let i = 0; i < enrollmentLen!; i++) {
@@ -59,39 +65,69 @@ const EnrollCard = () => {
 
   return (
     <div className="px-4 md:px-12 lg:px-64 flex flex-row gap-4 flex-wrap justify-center lg:flex-nowrap">
-      {courselist.map((item) => (
-        <>
-          <Card className="mt-6 w-96 pt-12">
-            <CardHeader color="blue-gray" className="relative h-48">
-              <img src={item.imageUrl} alt="card-image" />
-            </CardHeader>
-            <CardBody className="h-64">
-              <div className="flex flex-row items-center gap-1">
-                <AiOutlineClockCircle />
-                <Typography className="font-bold">{item.duration}</Typography>
-              </div>
+      {courselist &&
+        courselist!.map((item) => (
+          <>
+            <Card className="mt-6 w-96 pt-12">
+              <CardHeader color="blue-gray" className="relative h-48">
+                <img src={item.imageUrl} alt="card-image" />
+              </CardHeader>
+              <CardBody className="h-64">
+                <div className="flex flex-row items-center gap-1">
+                  <AiOutlineClockCircle />
+                  <Typography className="font-bold">{item.duration}</Typography>
+                </div>
 
-              <Typography variant="h4" color="blue-gray" className="mb-2">
-                {item.courseName}
-              </Typography>
-              <Typography>{item.description}</Typography>
-            </CardBody>
-            {userEnrollmentArr.some((ele) => ele === item.courseName) ? (
-              <CardFooter className="pt-0">
-                <Button color="teal" variant="outlined" onClick={() => handleNavigate(item.id)}>
-                  Resume Learning
-                </Button>
-              </CardFooter>
-            ) : (
-              <CardFooter className="pt-0" onClick={() => handleEnroll(user?.id, item.id, item.courseName)}>
-                <Button color="teal" onClick={() => handleNavigate(item.id)}>
-                  Enroll this course
-                </Button>
-              </CardFooter>
-            )}
-          </Card>
-        </>
-      ))}
+                <Typography variant="h4" color="blue-gray" className="mb-2">
+                  {item.courseName}
+                </Typography>
+                <Typography>{item.description}</Typography>
+              </CardBody>
+
+              {isLoggedIn ? (
+                <>
+                  <CardFooter className="pt-0">
+                    <Button color="teal" variant="outlined" onClick={() => handleNavigate(item.id)}>
+                      Resume Learning
+                    </Button>
+                  </CardFooter>
+                  <CardFooter className="pt-0" onClick={() => handleEnroll(user?.id, item.id, item.courseName)}>
+                    <Button color="teal" onClick={() => handleNavigate(item.id)}>
+                      Enroll this course
+                    </Button>
+                  </CardFooter>
+                </>
+              ) : (
+                <CardFooter
+                  className="pt-0"
+                  // onClick={() => handleEnroll(user?.id, item.id, item.courseName)}
+                >
+                  <Button
+                    color="teal"
+                    // onClick={() => handleNavigate(item.id)}
+                  >
+                    Enroll this course
+                  </Button>
+                </CardFooter>
+              )}
+
+              {/* {userEnrollmentArr.length !== 0 ? (
+                // .some((ele) => ele === item.courseName)
+                <CardFooter className="pt-0">
+                  <Button color="teal" variant="outlined" onClick={() => handleNavigate(item.id)}>
+                    Resume Learning
+                  </Button>
+                </CardFooter>
+              ) : (
+                <CardFooter className="pt-0" onClick={() => handleEnroll(user?.id, item.id, item.courseName)}>
+                  <Button color="teal" onClick={() => handleNavigate(item.id)}>
+                    Enroll this course
+                  </Button>
+                </CardFooter>
+              )} */}
+            </Card>
+          </>
+        ))}
     </div>
   )
 }
