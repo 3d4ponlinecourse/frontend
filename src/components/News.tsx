@@ -39,7 +39,7 @@ const Content: IContent[] = [
 const News = () => {
   return (
     <div className="px-4 md:px-12 lg:px-64 py-8 lg:py-32 flex flex-col gap-12">
-      <div className="flex flex row justify-between items-end ">
+      <div className="flex flex-row justify-between items-end ">
         <div className="flex flex-row items-center gap-2">
           <span className="text-teal-400">
             <BiNews size={36} />

@@ -13,7 +13,7 @@ const LearningPage = () => {
 
   const [activeTab, setActiveTab] = React.useState('overview')
 
-  const [url, setURL] = React.useState('https://www.youtube.com/watch?v=v86OlB4f2QY')
+  const [url, setURL] = React.useState('https://www.youtube.com/watch?v=lVg8y-rERlk')
   const [activeLesson, setActiveLesson] = React.useState('')
 
   if (!course || !id) return <p>Failed to comment</p>

@@ -1,25 +1,26 @@
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../providers/AuthProvider";
-import { FormEvent, useState } from "react";
-import { toast } from "react-hot-toast";
-import { Input, Button, Radio, Typography } from "@material-tailwind/react";
-import React from "react";
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
+import { FormEvent, useState } from 'react'
+import { toast } from 'react-hot-toast'
+import { Input, Button, Radio, Typography } from '@material-tailwind/react'
+
+import { useAuth } from '../providers/AuthProvider'
 
 const Register = () => {
-  const { register, login } = useAuth();
-  const navigate = useNavigate();
-  const [emailInput, setEmailInput] = useState<string>("");
-  const [usernameInput, setUsernameInput] = useState<string>("");
-  const [firstnameInput, setFirstnameInput] = useState<string>("");
-  const [lastnameInput, setLastnameInput] = useState<string>("");
-  const [passwordInput, setPasswordInput] = useState<string>("");
-  const [conpasswordInput, setConPasswordInput] = useState<string>("");
-  const [genderInput, setGenderInput] = useState<string>("");
+  const { register, login } = useAuth()
+  const navigate = useNavigate()
+  const [emailInput, setEmailInput] = useState<string>('')
+  const [usernameInput, setUsernameInput] = useState<string>('')
+  const [firstnameInput, setFirstnameInput] = useState<string>('')
+  const [lastnameInput, setLastnameInput] = useState<string>('')
+  const [passwordInput, setPasswordInput] = useState<string>('')
+  const [conpasswordInput, setConPasswordInput] = useState<string>('')
+  const [genderInput, setGenderInput] = useState<string>('')
 
   const handleSubmit = async (e: FormEvent) => {
-    e.preventDefault();
+    e.preventDefault()
     if (passwordInput !== conpasswordInput) {
-      return alert("Please Check your password!!!");
+      return alert('Please Check your password!!!')
     }
 
     try {
@@ -30,30 +31,23 @@ const Register = () => {
         lastnameInput,
         passwordInput,
         conpasswordInput,
-        genderInput
-      );
-      await login(usernameInput, passwordInput);
+        genderInput,
+      )
+      await login(usernameInput, passwordInput)
 
-      toast.success("Registered and Login!");
-      navigate("/");
+      toast.success('Registered and Login!')
+      navigate('/')
     } catch (err: any) {
-      console.log(err);
-      toast.error(err.message);
+      console.log(err)
+      toast.error(err.message)
     }
-  };
+  }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col gap-6 max-w-md m-auto my-14 py-5 px-7"
-    >
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6 max-w-md m-auto my-14 py-5 px-7">
       <div>
-        <h1 className="text-4xl font-bold text-teal-400 text-center">
-          REGISTRATION
-        </h1>
-        <p className="text-center">
-          Complete your profile and start your learning!
-        </p>
+        <h1 className="text-4xl font-bold text-teal-400 text-center">REGISTRATION</h1>
+        <p className="text-center">Complete your profile and start your learning!</p>
       </div>
       <div className="flex flex-col gap-2">
         <Input
@@ -154,11 +148,7 @@ const Register = () => {
             id="PREFERNOTTOSAY"
             name="gender"
             value="PREFERNOTTOSAY"
-            label={
-              <Typography className="text-neutral-400">
-                Prefer not to say
-              </Typography>
-            }
+            label={<Typography className="text-neutral-400">Prefer not to say</Typography>}
             onChange={(e) => setGenderInput(e.target.value)}
             required
           ></Radio>
@@ -171,7 +161,7 @@ const Register = () => {
         </Button>
       </div>
     </form>
-  );
-};
+  )
+}
 
-export default Register;
+export default Register

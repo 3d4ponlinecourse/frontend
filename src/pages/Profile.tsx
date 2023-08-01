@@ -13,7 +13,7 @@ export const Profile = () => {
   if (isLoading || !user) return <Loading />
 
   return (
-    <div className="flex items-start px-4 md:px-12 lg:px-64  gap-8">
+    <div className="flex items-start my-16 px-4 md:px-12 lg:px-64  gap-8">
       <div className="justify-center border border-teal-400 flex flex-col items-center gap-y-16 rounded-xl py-8 w-4/12">
         <div>
           <div className="flex-col text-2xl flex items-center gap-4 ">
@@ -26,18 +26,45 @@ export const Profile = () => {
               />
             </div>
             <div className="flex flex-col ">
-              {' '}
-              <h2 className="font-bold">{user['firstname']}</h2>
-              <h2 className="font-bold">{user['lastname']}</h2>
+              <p className="font-bold text-sm">
+                <span className="text-teal-400">Username:</span> {user['username']}
+              </p>
+              <p className="font-bold text-sm">
+                <span className="text-teal-400">Firstname: </span>
+                {user['firstname']}
+              </p>
+              <p className="font-bold text-sm">
+                <span className="text-teal-400">Lastname: </span>
+                {user['lastname']}
+              </p>
+              <p className="font-bold text-sm">
+                <span className="text-teal-400">Email: </span>
+                {user['email']}
+              </p>
+              <p className="font-bold text-sm">
+                <span className="text-teal-400">Gender: </span>
+                {user['gender']}
+              </p>
             </div>
           </div>
         </div>
         <div className="flex-col justify-start">
-          <div className="grid gap-4 text-2xl  flex-col">
-            <Button color="teal" variant="outlined" onClick={() => setComponent(0)}>
-              Lasted Course
+          <div className="grid gap-4 text-3xl flex-col">
+            <Button
+              className="transition ease-in duration 300 hover:scale-105"
+              color="teal"
+              variant="outlined"
+              onClick={() => setComponent(0)}
+            >
+              Enrolled Courses<span className="text-teal-400">.</span>
             </Button>
-            <Button color="teal" variant="outlined" type="button" onClick={() => setComponent(1)}>
+            <Button
+              className="transition ease-in duration 300 hover:scale-105"
+              color="teal"
+              variant="outlined"
+              type="button"
+              onClick={() => setComponent(1)}
+            >
               Edit Profile
             </Button>
           </div>

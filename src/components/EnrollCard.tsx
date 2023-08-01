@@ -4,16 +4,55 @@ import { useNavigate } from 'react-router-dom'
 import useCourselist from '../hooks/useCourselist'
 import Loading from './Loading'
 import { AiOutlineClockCircle } from 'react-icons/ai'
+import useProfile from '../hooks/useProfile'
+import { toast } from 'react-hot-toast'
 
 const EnrollCard = () => {
   const { courselist, error, isLoading } = useCourselist()
-
+  const { user } = useProfile()
   const navigate = useNavigate()
+
+  const enroll = async (userId: string | undefined, courseId: number, courseName: string) => {
+    const enrollBody = { userId, courseId, courseName }
+    const token = localStorage.getItem('token')
+
+    try {
+      const res = await fetch('http://localhost:8000/user/enroll', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify(enrollBody),
+      })
+      const data = await res.json()
+
+      if (data.statusCode && data.statusCode !== 201) {
+        throw new Error(data.message)
+      }
+    } catch (err: any) {
+      throw new Error(err.message)
+    }
+  }
 
   const handleNavigate = (id: number) => {
     navigate(`/learn/${id}`)
   }
-  console.log(courselist)
+
+  const handleEnroll = async (userId: string | undefined, courseId: number, courseName: string) => {
+    try {
+      await enroll(userId, courseId, courseName)
+      toast.success('Enrollment Success!')
+      console.log(userId, courseId, courseName)
+    } catch (err: any) {
+      console.log(err)
+      toast.error(err.message)
+    }
+  }
+
+  console.log(user?.enrollment.length)
+  const userEnrollmentArr: string[] = []
+  const enrollmentLen = user?.enrollment.length
+  for (let i = 0; i < enrollmentLen!; i++) {
+    userEnrollmentArr.push(user!.enrollment[i].courseName)
+  }
 
   if (!courselist || isLoading) return <Loading />
   if (error) return <h1>{error}</h1>
@@ -37,11 +76,19 @@ const EnrollCard = () => {
               </Typography>
               <Typography>{item.description}</Typography>
             </CardBody>
-            <CardFooter className="pt-0">
-              <Button color="teal" onClick={() => handleNavigate(item.id)}>
-                Enroll this course
-              </Button>
-            </CardFooter>
+            {userEnrollmentArr.some((ele) => ele === item.courseName) ? (
+              <CardFooter className="pt-0">
+                <Button color="teal" variant="outlined" onClick={() => handleNavigate(item.id)}>
+                  Resume Learning
+                </Button>
+              </CardFooter>
+            ) : (
+              <CardFooter className="pt-0" onClick={() => handleEnroll(user?.id, item.id, item.courseName)}>
+                <Button color="teal" onClick={() => handleNavigate(item.id)}>
+                  Enroll this course
+                </Button>
+              </CardFooter>
+            )}
           </Card>
         </>
       ))}

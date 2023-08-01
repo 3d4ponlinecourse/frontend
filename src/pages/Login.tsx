@@ -1,5 +1,4 @@
-import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../../providers/AuthProvider'
+import { useAuth } from '../providers/AuthProvider'
 import { FormEvent, useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { Link } from 'react-router-dom'
@@ -8,7 +7,6 @@ import React from 'react'
 
 const Login = () => {
   const { login } = useAuth()
-  const navigate = useNavigate()
   const [usernameInput, setUsernameInput] = useState<string>('')
   const [passwordInput, setPasswordInput] = useState<string>('')
 

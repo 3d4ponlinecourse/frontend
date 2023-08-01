@@ -62,7 +62,7 @@ const Navbar = () => {
                 </MenuHandler>
                 <MenuList>
                   <MenuItem>
-                    <p onClick={() => handleNavigate(user.id)}>Profile</p>
+                    <p onClick={() => handleNavigate(user['firstname'])}>Profile</p>
                   </MenuItem>
                   <MenuItem onClick={logout}>Log out</MenuItem>
                 </MenuList>
