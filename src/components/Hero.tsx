@@ -1,18 +1,24 @@
-import { Loader, PerspectiveCamera, PresentationControls, Stage, useGLTF } from '@react-three/drei'
-import { Canvas } from '@react-three/fiber'
-import React, { Suspense } from 'react'
-import { AiFillFacebook, AiOutlineTwitter } from 'react-icons/ai'
-import { BsDiscord } from 'react-icons/bs'
-import { Button } from '@material-tailwind/react'
-import angleToRaidian from '../utility/angleToRaidian'
-import { Link } from 'react-router-dom'
+import {
+  Loader,
+  PerspectiveCamera,
+  PresentationControls,
+  Stage,
+  useGLTF,
+} from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import React, { Suspense } from "react";
+import { AiFillFacebook, AiOutlineTwitter } from "react-icons/ai";
+import { BsDiscord } from "react-icons/bs";
+import { Button } from "@material-tailwind/react";
+import angleToRaidian from "../utility/angleToRaidian";
+import { Link } from "react-router-dom";
 
 // const group = useRef()
 const Model = (props: any): any => {
-  const { scene } = useGLTF('/Benz.glb')
+  const { scene } = useGLTF("/Benz.glb");
   // const { actions } = useAnimations(animations, group)
-  return <primitive object={scene} {...props} />
-}
+  return <primitive object={scene} {...props} />;
+};
 
 const Hero = () => {
   return (
@@ -54,10 +60,20 @@ const Hero = () => {
       <div className="bg-zinc-700 min-h-full hidden lg:block overflow-hidden relative w-1/3 ">
         <Canvas dpr={[1, 2]} shadows>
           <Suspense fallback={null}>
-            <PerspectiveCamera makeDefault zoom={1.4} position={[0, 1, 5]} fov={50} />
+            <PerspectiveCamera
+              makeDefault
+              zoom={1.4}
+              position={[0, 1, 5]}
+              fov={50}
+            />
             {/* <color attach="background" args={['#2d2d30']} /> */}
-            <PresentationControls speed={1.5} global zoom={0.7} polar={[-0.1, Math.PI / 4]}>
-              <Stage preset={'soft'} environment={'city'} shadows>
+            <PresentationControls
+              speed={1.5}
+              global
+              zoom={0.7}
+              polar={[-0.1, Math.PI / 4]}
+            >
+              <Stage preset={"soft"} environment={"city"} shadows>
                 <Model scale={1} rotation={[0, angleToRaidian(-15), 0]} />
               </Stage>
             </PresentationControls>
@@ -66,7 +82,7 @@ const Hero = () => {
         <Loader />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

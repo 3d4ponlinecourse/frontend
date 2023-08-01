@@ -1,11 +1,11 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import { useAuth } from '../providers/AuthProvider'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../providers/AuthProvider";
+import { Link } from "react-router-dom";
 
-const Courselist = () => {
-  const navigate = useNavigate()
-  const Courselist = useAuth()
+const CourseList = () => {
+  const navigate = useNavigate();
+  const Courselist = useAuth();
 
   return (
     <div>
@@ -52,7 +52,7 @@ const Courselist = () => {
       </p>
       <footer>3D4P</footer>
     </div>
-  )
-}
+  );
+};
 
-export default Courselist
+export default CourseList;

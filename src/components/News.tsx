@@ -1,31 +1,38 @@
-import React from 'react'
-import { BiNews } from 'react-icons/bi'
-import { Card, CardBody, CardFooter, Typography, Button } from '@material-tailwind/react'
+import React from "react";
+import { BiNews } from "react-icons/bi";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
 
 interface IContent {
-  id: number
-  date: string
-  topic: string
-  body: string
+  id: number;
+  date: string;
+  topic: string;
+  body: string;
 }
 
 const Content: IContent[] = [
   {
     id: 1,
-    date: 'JULY 5, 2023',
-    topic: 'Posing Characters in ZBrush the Easy Way',
-    body: 'I have been invited by Reallusion to showcase a bit more of my posing workflow between ZBrush and Character Creator 4.',
+    date: "JULY 5, 2023",
+    topic: "Posing Characters in ZBrush the Easy Way",
+    body: "I have been invited by Reallusion to showcase a bit more of my posing workflow between ZBrush and Character Creator 4.",
   },
   {
     id: 2,
-    date: 'JUNE 3, 2023',
-    topic: 'Adobe live - Substance 3D tools',
+    date: "JUNE 3, 2023",
+    topic: "Adobe live - Substance 3D tools",
     body: "Get ready for a new kind of livestream: In collaboration with Adobe we've setup a two part Zelda-inspired livestream",
   },
   {
     id: 3,
-    date: 'MAY 3, 2023',
-    topic: 'Star Wars art challenge: Reimagine a classic Star Wars character in 3D and May the 4th be with you',
+    date: "MAY 3, 2023",
+    topic:
+      "Star Wars art challenge: Reimagine a classic Star Wars character in 3D and May the 4th be with you",
     body: "Hey guys! We're thrilled to announce our latest online art challenge. Get ready to unleash your creativity and let your imagination run wild!",
   },
   // {
@@ -34,7 +41,7 @@ const Content: IContent[] = [
   //   topic: 'Ultimate Zbrush Guide Free Workshop',
   //   body: "Quick reminder: We're hosting a live workshop for the Ultimate ZBrush Guides students, and the best part is that it's completely free to join!",
   // },
-]
+];
 
 const News = () => {
   return (
@@ -46,9 +53,11 @@ const News = () => {
           </span>
           <h2 className="font-bold text-3xl md:text-4xl">
             News & Updates<span className="text-teal-400">.</span>
-          </h2>{' '}
+          </h2>{" "}
         </div>
-        <p className="font-bold hidden md:block hover:text-teal-400 hover:cursor-pointer">SEE ALL</p>
+        <p className="font-bold hidden md:block hover:text-teal-400 hover:cursor-pointer">
+          SEE ALL
+        </p>
       </div>
       <div className="flex flex-row gap-4 flex-wrap md:flex-nowrap">
         {Content.map((item) => (
@@ -72,7 +81,7 @@ const News = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default News
+export default News;
