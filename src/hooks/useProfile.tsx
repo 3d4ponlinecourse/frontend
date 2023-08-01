@@ -19,7 +19,6 @@ const useProfile = () => {
         const data = await res.json()
         useUser(data)
       } catch (err: any) {
-        console.log(err)
         setError(err.message)
       } finally {
         setIsLoading(false)
