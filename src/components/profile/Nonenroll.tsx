@@ -1,7 +1,7 @@
 import React from "react";
 
 const NonEnroll = () => {
-  return <div>คุณไม่ได้ enroll ใน course ใดๆ</div>;
+  return <div> You have not enrolled any course yet.</div>;
 };
 
 export default NonEnroll;
