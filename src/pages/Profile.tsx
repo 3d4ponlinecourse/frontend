@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import Editprofile from "../components/Profile/EditProfile";
+import Editprofile from "../components/profile/EditProfile";
 import useProfile from "../hooks/useProfile";
 import Loading from "../components/Loading";
-import CurrentCourse from "../components/Profile/CurrentCourse";
+import CurrentCourse from "../components/profile/CurrentCourse";
 import { Avatar, Button } from "@material-tailwind/react";
 
 export const Profile = () => {
