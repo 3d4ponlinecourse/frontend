@@ -1,5 +1,5 @@
-import { MutatingDots } from 'react-loader-spinner'
-import React from 'react'
+import { MutatingDots } from "react-loader-spinner";
+import React from "react";
 
 const Loading = () => {
   return (
@@ -16,7 +16,7 @@ const Loading = () => {
         visible={true}
       />
     </div>
-  )
-}
+  );
+};
 
-export default Loading
+export default Loading;

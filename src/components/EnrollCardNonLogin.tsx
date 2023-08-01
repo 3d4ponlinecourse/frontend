@@ -1,26 +1,33 @@
-import React from 'react'
-import { Card, CardHeader, CardBody, CardFooter, Typography, Button } from '@material-tailwind/react'
-import { useNavigate } from 'react-router-dom'
-import useCourselist from '../hooks/useCourselist'
-import Loading from './Loading'
-import { AiOutlineClockCircle } from 'react-icons/ai'
+import React from "react";
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Button,
+} from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom";
+import useCourseList from "../hooks/useCourseList";
+import Loading from "./Loading";
+import { AiOutlineClockCircle } from "react-icons/ai";
 
 const EnrollCardNonLogin = () => {
-  const { courselist, error, isLoading } = useCourselist()
+  const { courseList, error, isLoading } = useCourseList();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleNavigate = (id: number) => {
-    navigate(`/learn/${id}`)
-  }
+    navigate(`/learn/${id}`);
+  };
 
-  if (!courselist || isLoading) return <Loading />
-  if (error) return <h1>{error}</h1>
+  if (!courseList || isLoading) return <Loading />;
+  if (error) return <h1>{error}</h1>;
 
   return (
     <div className="px-4 md:px-12 lg:px-64 flex flex-row gap-4 flex-wrap justify-center lg:flex-nowrap">
-      {courselist &&
-        courselist!.map((item) => (
+      {courseList &&
+        courseList!.map((item) => (
           <>
             <Card className="mt-6 w-96 pt-12">
               <CardHeader color="blue-gray" className="relative h-48">
@@ -46,7 +53,7 @@ const EnrollCardNonLogin = () => {
           </>
         ))}
     </div>
-  )
-}
+  );
+};
 
-export default EnrollCardNonLogin
+export default EnrollCardNonLogin;

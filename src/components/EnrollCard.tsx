@@ -8,7 +8,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
-import useCourselist from "../hooks/useCourselist";
+import useCourseList from "../hooks/useCourseList";
 import Loading from "./Loading";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import useProfile from "../hooks/useProfile";
@@ -16,7 +16,7 @@ import { toast } from "react-hot-toast";
 import { host } from "../constant";
 
 const EnrollCard = () => {
-  const { courselist, error, isLoading } = useCourselist();
+  const { courseList, error, isLoading } = useCourseList();
   const { user } = useProfile();
   const navigate = useNavigate();
 
@@ -73,12 +73,12 @@ const EnrollCard = () => {
     userEnrollmentArr.push(user!.enrollment[i].courseName);
   }
 
-  if (!courselist || isLoading) return <Loading />;
+  if (!courseList || isLoading) return <Loading />;
   if (error) return <h1>{error}</h1>;
 
   return (
     <div className="px-4 md:px-12 lg:px-64 flex flex-row gap-4 flex-wrap justify-center lg:flex-nowrap">
-      {courselist.map((item) => (
+      {courseList.map((item) => (
         <>
           <Card className="mt-6 w-96 pt-12">
             <CardHeader color="blue-gray" className="relative h-48">
