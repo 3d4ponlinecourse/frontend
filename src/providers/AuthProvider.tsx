@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface IAuthContext {
   isLoggedIn: boolean
@@ -32,6 +33,7 @@ const user = localStorage.getItem('user')
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!token)
   const [username, setUsername] = useState<string | null>(user)
+  const navigate = useNavigate()
 
   const login = async (username: string, password: string) => {
     const loginInfo = { username, password }
@@ -95,6 +97,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const logout = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
+    localStorage.removeItem('userId')
     setIsLoggedIn(false)
     setUsername(null)
   }

@@ -7,16 +7,17 @@ import FAQ from '../components/FAQ'
 import Footer from '../components/Footer'
 import EnrollCard from '../components/EnrollCard'
 import FadeInWhenVisible from '../utility/FadeInWhenVisible'
+import { useAuth } from '../providers/AuthProvider'
+import EnrollCardNonLogin from '../components/EnrollCardNonLogin'
 
 const Home = () => {
+  const { isLoggedIn } = useAuth()
   return (
     <>
       <FadeInWhenVisible>
         <Hero />
       </FadeInWhenVisible>
-      <FadeInWhenVisible>
-        <EnrollCard />
-      </FadeInWhenVisible>
+      <FadeInWhenVisible>{isLoggedIn ? <EnrollCard /> : <EnrollCardNonLogin />}</FadeInWhenVisible>
       <FadeInWhenVisible>
         <Resources />
       </FadeInWhenVisible>
