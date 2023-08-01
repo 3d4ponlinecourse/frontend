@@ -32,9 +32,6 @@ jobs:
         with:
           push: true
           file: ./Dockerfile
-          build-args: |
-            FROM_REPO=${{ github.repositoryUrl }}
-            APP_VERSION=${{ github.ref_name }}
           tags: |
-            ${{ secrets.DOCKERHUB_USERNAME }}/wonglao-frontend:${{ github.ref_name }}
-            ${{ secrets.DOCKERHUB_USERNAME }}/wonglao-frontend:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/3d4p:${{ github.ref_name }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/3d4p:latest
