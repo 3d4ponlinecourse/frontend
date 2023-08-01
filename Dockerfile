@@ -9,7 +9,7 @@ ENV VITE_BE_URL="https://api.3d4p.cleverse.academy"
 
 RUN npm install -g pnpm
 RUN pnpm install
-RUN npm run build
+RUN pnpm build
 
 # Step 1: copy built React app into base NGINX image
 FROM nginx:latest
