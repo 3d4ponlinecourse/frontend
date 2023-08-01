@@ -1,10 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { IEnrollment } from "../../types/enrollment";
-import { Button } from "@material-tailwind/react";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { IEnrollment } from '../../types/enrollment'
+import { Button } from '@material-tailwind/react'
 
 interface ICurrentCourseListProp {
-  enrollment: IEnrollment;
+  enrollment: IEnrollment
 }
 
 const CurrentCourseList = ({ enrollment }: ICurrentCourseListProp) => {
@@ -15,9 +15,7 @@ const CurrentCourseList = ({ enrollment }: ICurrentCourseListProp) => {
           <div className="flex flex-col col-start-1 col-span-3 ... p-2 ">
             <h4 className="flex justify-start text-gray-500 ml-6">Course</h4>
             <Link to={`/learn/${enrollment.courseId}`}>
-              <button className="flex justify-left font-bold text-xl ml-6">
-                {enrollment.courseName}
-              </button>
+              <button className="flex justify-left font-bold text-xl ml-6">{enrollment.courseName}</button>
             </Link>
           </div>
           <div className="grid content-center justify-between ml-8">
@@ -30,7 +28,7 @@ const CurrentCourseList = ({ enrollment }: ICurrentCourseListProp) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default CurrentCourseList;
+export default CurrentCourseList

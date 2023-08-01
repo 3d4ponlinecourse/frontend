@@ -1,10 +1,11 @@
-import React, { createContext, useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { host } from "../constant";
 
 interface IAuthContext {
-  isLoggedIn: boolean
-  username: string | null
-  login: (username: string, password: string) => Promise<void>
+  isLoggedIn: boolean;
+  username: string | null;
+  login: (username: string, password: string) => Promise<void>;
   register: (
     email: string,
     username: string,
@@ -12,52 +13,52 @@ interface IAuthContext {
     lastname: string,
     password: string,
     conpassword: string,
-    gender: string,
-  ) => Promise<void>
-  logout: () => void
+    gender: string
+  ) => Promise<void>;
+  logout: () => void;
 }
 
-const AuthContext = createContext<IAuthContext | null>(null)
+const AuthContext = createContext<IAuthContext | null>(null);
 
 export const useAuth = () => {
-  const context = useContext(AuthContext)
+  const context = useContext(AuthContext);
 
-  if (!context) throw new Error('useAuth must be used inside AuthProvider!')
+  if (!context) throw new Error("useAuth must be used inside AuthProvider!");
 
-  return context
-}
+  return context;
+};
 
-const token = localStorage.getItem('token')
-const user = localStorage.getItem('user')
+const token = localStorage.getItem("token");
+const user = localStorage.getItem("user");
 
 const AuthProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!token)
-  const [username, setUsername] = useState<string | null>(user)
-  const navigate = useNavigate()
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!token);
+  const [username, setUsername] = useState<string | null>(user);
+  const navigate = useNavigate();
 
   const login = async (username: string, password: string) => {
-    const loginInfo = { username, password }
+    const loginInfo = { username, password };
 
     try {
-      const res = await fetch('http://localhost:8000/user/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch(`http://${host}/user/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(loginInfo),
-      })
+      });
       if (res.status > 400) {
-        throw new Error(res.statusText)
+        throw new Error(res.statusText);
       }
-      const data = await res.json()
+      const data = await res.json();
 
-      localStorage.setItem('token', data.accessToken)
-      localStorage.setItem('user', username)
-      localStorage.setItem('userId', data.userId)
-      setIsLoggedIn(true)
-      setUsername(username)
+      localStorage.setItem("token", data.accessToken);
+      localStorage.setItem("user", username);
+      localStorage.setItem("userId", data.userId);
+      setIsLoggedIn(true);
+      setUsername(username);
     } catch (err: any) {
-      throw new Error(err.message)
+      throw new Error(err.message);
     }
-  }
+  };
 
   const register = async (
     email: string,
@@ -66,7 +67,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     lastname: string,
     password: string,
     conpassword: string,
-    gender: string,
+    gender: string
   ) => {
     const registerBody = {
       email,
@@ -76,35 +77,39 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       password,
       conpassword,
       gender,
-    }
+    };
 
     try {
-      const res = await fetch('http://localhost:8000/user/register', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch(`http://${host}/user/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(registerBody),
-      })
-      const data = await res.json()
+      });
+      const data = await res.json();
 
       if (data.statusCode && data.statusCode !== 201) {
-        throw new Error(data.message)
+        throw new Error(data.message);
       }
     } catch (err: any) {
-      throw new Error(err.message)
+      throw new Error(err.message);
     }
-  }
+  };
 
   const logout = () => {
-    localStorage.removeItem('token')
-    localStorage.removeItem('user')
-    localStorage.removeItem('userId')
-    setIsLoggedIn(false)
-    setUsername(null)
-  }
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    localStorage.removeItem("userId");
+    setIsLoggedIn(false);
+    setUsername(null);
+  };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, login, logout, username, register }}>{children}</AuthContext.Provider>
-  )
-}
+    <AuthContext.Provider
+      value={{ isLoggedIn, login, logout, username, register }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
+};
 
-export default AuthProvider
+export default AuthProvider;

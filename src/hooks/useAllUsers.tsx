@@ -1,29 +1,30 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
+import { host } from "../constant";
 
 const useUsers = () => {
-  const [users, useUsers] = useState(null)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [error, setError] = useState(null)
+  const [users, useUsers] = useState(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true)
+      setIsLoading(true);
       try {
-        const res = await fetch(`http://localhost:8000/user`)
-        const data = await res.json()
+        const res = await fetch(`http://${host}/user`);
+        const data = await res.json();
 
-        useUsers(data)
+        useUsers(data);
       } catch (err: any) {
-        setError(err.message)
+        setError(err.message);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
+    };
 
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
-  return { users, isLoading, error }
-}
+  return { users, isLoading, error };
+};
 
-export default useUsers
+export default useUsers;

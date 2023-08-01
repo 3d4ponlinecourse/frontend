@@ -1,29 +1,30 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
+import { host } from "../constant";
 
 const useEnrollment = (username: string) => {
-  const [enrollment, useEnrollment] = useState(null)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [error, setError] = useState(null)
+  const [enrollment, useEnrollment] = useState(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true)
+      setIsLoading(true);
       try {
-        const res = await fetch(`http://localhost:8000/enrollment/${username}`)
-        const data = await res.json()
+        const res = await fetch(`http://${host}/enrollment/${username}`);
+        const data = await res.json();
 
-        useEnrollment(data)
+        useEnrollment(data);
       } catch (err: any) {
-        setError(err.message)
+        setError(err.message);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
+    };
 
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
-  return { enrollment, isLoading, error }
-}
+  return { enrollment, isLoading, error };
+};
 
-export default useEnrollment
+export default useEnrollment;

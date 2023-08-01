@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { IComment } from "../types/comment";
+import { host } from "../constant";
 
 const useComment = (id: number) => {
   const [comment, setComment] = useState<IComment>();
@@ -10,7 +11,7 @@ const useComment = (id: number) => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const res = await fetch(`http://localhost:8000/comment`);
+        const res = await fetch(`http://${host}/comment`);
         const data = await res.json();
         console.log(data);
 

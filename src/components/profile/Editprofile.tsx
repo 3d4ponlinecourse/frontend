@@ -1,34 +1,35 @@
-import { Button, Input } from '@material-tailwind/react'
-import { FormEvent, useEffect, useState } from 'react'
-import React from 'react'
-import { toast } from 'react-hot-toast'
-import { useNavigate } from 'react-router-dom'
-import useProfile from '../../hooks/useProfile'
+import { Button, Input } from "@material-tailwind/react";
+import { FormEvent, useEffect, useState } from "react";
+import React from "react";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import useProfile from "../../hooks/useProfile";
+import { host } from "../../constant";
 
 const Editprofile = () => {
-  const { user } = useProfile()
-  const navigate = useNavigate()
-  const [newFirstname, setFirstname] = useState<string>('')
-  const [newLastname, setLastname] = useState<string>('')
-  const [newEmail, setEmail] = useState<string>('')
+  const { user } = useProfile();
+  const navigate = useNavigate();
+  const [newFirstname, setFirstname] = useState<string>("");
+  const [newLastname, setLastname] = useState<string>("");
+  const [newEmail, setEmail] = useState<string>("");
 
   useEffect(() => {
     if (user) {
-      setFirstname(user['firstname'])
-      setLastname(user['lastname'])
-      setEmail(user.email)
+      setFirstname(user["firstname"]);
+      setLastname(user["lastname"]);
+      setEmail(user.email);
     }
-  }, [user])
+  }, [user]);
 
   const handleEdit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const token = localStorage.getItem('token')
-    const userId = localStorage.getItem('userId')
+    e.preventDefault();
+    const token = localStorage.getItem("token");
+    const userId = localStorage.getItem("userId");
     try {
-      const res = await fetch(`http://localhost:8000/enroll//update/${userId}`, {
-        method: 'PATCH',
+      const res = await fetch(`http://${host}/enroll//update/${userId}`, {
+        method: "PATCH",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
@@ -36,19 +37,19 @@ const Editprofile = () => {
           lastname: newLastname,
           email: newEmail,
         }),
-      })
-      const data = await res.json()
+      });
+      const data = await res.json();
 
       if (data.statusCode >= 400) {
-        throw new Error(data.message)
+        throw new Error(data.message);
       }
 
-      toast.success('Succesfully edited!')
-      navigate(`/`)
+      toast.success("Succesfully edited!");
+      navigate(`/`);
     } catch (err: any) {
-      toast.error(err.message)
+      toast.error(err.message);
     }
-  }
+  };
 
   return (
     <div>
@@ -62,7 +63,7 @@ const Editprofile = () => {
       </div>
       <Button color="teal">Save Change</Button>
     </div>
-  )
-}
+  );
+};
 
-export default Editprofile
+export default Editprofile;

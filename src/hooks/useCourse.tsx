@@ -1,31 +1,32 @@
-import { useEffect, useState } from 'react'
-import { ShowCourse } from '../types/course'
+import { useEffect, useState } from "react";
+import { ShowCourse } from "../types/course";
+import { host } from "../constant";
 
 const useCourse = (id: number) => {
-  const [course, setCourse] = useState<ShowCourse>()
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState(null)
+  const [course, setCourse] = useState<ShowCourse>();
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true)
+      setIsLoading(true);
       try {
-        const res = await fetch(`http://localhost:8000/course/${id}`)
-        const data = await res.json()
-        console.log(data)
+        const res = await fetch(`http://${host}/course/${id}`);
+        const data = await res.json();
+        console.log(data);
 
-        setCourse(data)
+        setCourse(data);
       } catch (err: any) {
-        setError(err.message)
+        setError(err.message);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
+    };
 
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
-  return { course, isLoading, error }
-}
+  return { course, isLoading, error };
+};
 
-export default useCourse
+export default useCourse;

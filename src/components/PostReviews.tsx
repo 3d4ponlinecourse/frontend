@@ -1,5 +1,6 @@
 import { Rating, Button, Dialog, Textarea } from "@material-tailwind/react";
 import { FormEvent, useState } from "react";
+import { host } from "../constant";
 
 import { toast } from "react-hot-toast";
 
@@ -20,7 +21,7 @@ const PostReviews = ({ courseId }: IPostReviewsProps) => {
     const userId = localStorage.getItem("userId");
 
     try {
-      await fetch(`http://localhost:8000/comment`, {
+      await fetch(`http://${host}/comment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

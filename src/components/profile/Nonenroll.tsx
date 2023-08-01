@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const Nonenroll = () => {
-  return <div>คุณไม่ได้ enroll ใน course ใดๆ</div>
-}
+const NonEnroll = () => {
+  return <div>คุณไม่ได้ enroll ใน course ใดๆ</div>;
+};
 
-export default Nonenroll
+export default NonEnroll;

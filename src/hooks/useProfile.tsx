@@ -1,33 +1,37 @@
-import { useEffect, useState } from 'react'
-import { IUserWithEnrollment } from '../types/enrollment'
+import { useEffect, useState } from "react";
+import { IUserWithEnrollment } from "../types/enrollment";
+import { host } from "../constant";
 
 const useProfile = () => {
-  const [user, useUser] = useState<IUserWithEnrollment>()
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [error, setError] = useState(null)
+  const [user, useUser] = useState<IUserWithEnrollment>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const userId = localStorage.getItem('userId')
-      const token = localStorage.getItem('token')
-      setIsLoading(true)
+      const userId = localStorage.getItem("userId");
+      const token = localStorage.getItem("token");
+      setIsLoading(true);
       try {
-        const res = await fetch(`http://localhost:8000/user/enroll/${userId}`, {
-          method: 'GET',
-          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
-        })
-        const data = await res.json()
-        useUser(data)
+        const res = await fetch(`http://${host}/user/enroll/${userId}`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const data = await res.json();
+        useUser(data);
       } catch (err: any) {
-        setError(err.message)
+        setError(err.message);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
-    fetchData()
-  }, [])
+    };
+    fetchData();
+  }, []);
 
-  return { user, isLoading, error }
-}
+  return { user, isLoading, error };
+};
 
-export default useProfile
+export default useProfile;

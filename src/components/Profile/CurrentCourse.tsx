@@ -1,10 +1,10 @@
-import React from 'react'
-import CurrentCourseList from './CurrentCourseList'
-import { IUserWithEnrollment } from '../../types/enrollment'
-import Nonenroll from './Nonenroll'
+import React from "react";
+import CurrentCourseList from "./CurrentCourseList";
+import { IUserWithEnrollment } from "../../types/enrollment";
+import NonEnroll from "./NonEnroll";
 
 export interface ICurrentCourseProps {
-  user: IUserWithEnrollment
+  user: IUserWithEnrollment;
 }
 
 const CurrentCourse = ({ user }: ICurrentCourseProps) => {
@@ -17,13 +17,18 @@ const CurrentCourse = ({ user }: ICurrentCourseProps) => {
       </div>
       <div>
         {user.enrollment.length === 0 ? (
-          <Nonenroll />
+          <NonEnroll />
         ) : (
-          user.enrollment.map((enrollment) => <CurrentCourseList key={enrollment.courseName} enrollment={enrollment} />)
+          user.enrollment.map((enrollment) => (
+            <CurrentCourseList
+              key={enrollment.courseName}
+              enrollment={enrollment}
+            />
+          ))
         )}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CurrentCourse
+export default CurrentCourse;

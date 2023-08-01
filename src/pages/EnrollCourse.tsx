@@ -1,22 +1,23 @@
-import React, { FormEvent, useState } from 'react'
-import { toast } from 'react-hot-toast'
-import { useNavigate } from 'react-router-dom'
+import React, { FormEvent, useState } from "react";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import { host } from "../constant";
 
 const EnrollCourse = () => {
-  const navigate = useNavigate()
-  const [userid, setUserId] = useState<string>()
-  const [courseid, setCourseId] = useState<number>()
-  const [courseName, setCourseName] = useState<string>()
+  const navigate = useNavigate();
+  const [userid, setUserId] = useState<string>();
+  const [courseid, setCourseId] = useState<number>();
+  const [courseName, setCourseName] = useState<string>();
 
   const handleEnroll = async (e: FormEvent) => {
-    e.preventDefault()
-    const token = localStorage.getItem('token')
+    e.preventDefault();
+    const token = localStorage.getItem("token");
 
     try {
-      await fetch(`http://localhost:8000/user/enroll`, {
-        method: 'POST',
+      await fetch(`http://${host}/user/enroll`, {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({
@@ -24,22 +25,20 @@ const EnrollCourse = () => {
           courseid,
           courseName,
         }),
-      })
-      toast.success('Successfully Enroll!!')
-      navigate('/learn')
+      });
+      toast.success("Successfully Enroll!!");
+      navigate("/learn");
     } catch (err: any) {
-      toast.error(err.message)
+      toast.error(err.message);
     }
-  }
+  };
 
   return (
     <form
       onSubmit={handleEnroll}
       className="flex flex-col gap-6 max-w-lg bg-gray-100 rounded-xl mx-auto my-14 py-5 px-7"
     >
-      <div className="flex flex-col gap-2">
-      
-      </div>
+      <div className="flex flex-col gap-2"></div>
       <div className="flex flex-col gap-2">
         <label>UserID:</label>
         <input
@@ -70,10 +69,14 @@ const EnrollCourse = () => {
           required
         />
       </div>
-      <button className="bg-teal-500 p-3 rounded-lg text-white hover:bg-teal-600" type="submit" value="submit">
+      <button
+        className="bg-teal-500 p-3 rounded-lg text-white hover:bg-teal-600"
+        type="submit"
+        value="submit"
+      >
         Submit
       </button>
     </form>
-  )
-}
-export default EnrollCourse
+  );
+};
+export default EnrollCourse;

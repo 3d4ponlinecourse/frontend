@@ -1,6 +1,6 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-const FadeInWhenVisible = ({ children }) => {
+import React from "react";
+import { motion } from "framer-motion";
+const FadeInWhenVisible = ({ children }: any) => {
   return (
     <motion.div
       initial="hidden"
@@ -14,7 +14,7 @@ const FadeInWhenVisible = ({ children }) => {
     >
       {children}
     </motion.div>
-  )
-}
+  );
+};
 
-export default FadeInWhenVisible
+export default FadeInWhenVisible;

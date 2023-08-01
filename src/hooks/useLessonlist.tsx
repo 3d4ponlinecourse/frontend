@@ -1,29 +1,30 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
+import { host } from "../constant";
 
 const useLessonlist = () => {
-  const [lessonlist, useLessonlist] = useState(null)
-  const [isLoading, setIsLoading] = useState<boolean>(false)
-  const [error, setError] = useState(null)
+  const [lessonlist, useLessonlist] = useState(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true)
+      setIsLoading(true);
       try {
-        const res = await fetch(`http://localhost:8000/lesson`)
-        const data = await res.json()
+        const res = await fetch(`http://${host}/lesson`);
+        const data = await res.json();
 
-        useLessonlist(data)
+        useLessonlist(data);
       } catch (err: any) {
-        setError(err.message)
+        setError(err.message);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
+    };
 
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
-  return { lessonlist, isLoading, error }
-}
+  return { lessonlist, isLoading, error };
+};
 
-export default useLessonlist
+export default useLessonlist;

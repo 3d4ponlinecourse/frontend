@@ -1,16 +1,16 @@
-import React from 'react'
-import { useState } from 'react'
-import Editprofile from '../components/profile/Editprofile'
-import useProfile from '../hooks/useProfile'
-import Loading from '../components/Loading'
-import CurrentCourse from '../components/profile/CurrentCourse'
-import { Avatar, Button } from '@material-tailwind/react'
+import React from "react";
+import { useState } from "react";
+import Editprofile from "../components/Profile/EditProfile";
+import useProfile from "../hooks/useProfile";
+import Loading from "../components/Loading";
+import CurrentCourse from "../components/Profile/CurrentCourse";
+import { Avatar, Button } from "@material-tailwind/react";
 
 export const Profile = () => {
-  const [component, setComponent] = useState<number>(0)
-  const { user, isLoading } = useProfile()
-  console.log(user)
-  if (isLoading || !user) return <Loading />
+  const [component, setComponent] = useState<number>(0);
+  const { user, isLoading } = useProfile();
+  console.log(user);
+  if (isLoading || !user) return <Loading />;
 
   return (
     <div className="flex items-start my-16 px-4 md:px-12 lg:px-64  gap-8">
@@ -27,23 +27,24 @@ export const Profile = () => {
             </div>
             <div className="flex flex-col ">
               <p className="font-bold text-sm">
-                <span className="text-teal-400">Username:</span> {user['username']}
+                <span className="text-teal-400">Username:</span>{" "}
+                {user["username"]}
               </p>
               <p className="font-bold text-sm">
                 <span className="text-teal-400">Firstname: </span>
-                {user['firstname']}
+                {user["firstname"]}
               </p>
               <p className="font-bold text-sm">
                 <span className="text-teal-400">Lastname: </span>
-                {user['lastname']}
+                {user["lastname"]}
               </p>
               <p className="font-bold text-sm">
                 <span className="text-teal-400">Email: </span>
-                {user['email']}
+                {user["email"]}
               </p>
               <p className="font-bold text-sm">
                 <span className="text-teal-400">Gender: </span>
-                {user['gender']}
+                {user["gender"]}
               </p>
             </div>
           </div>
@@ -75,7 +76,7 @@ export const Profile = () => {
         {component === 1 ? <Editprofile /> : null}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
