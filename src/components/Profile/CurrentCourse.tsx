@@ -11,8 +11,9 @@ const CurrentCourse = ({ user }: ICurrentCourseProps) => {
   return (
     <div className="">
       <div className="flex justify-between items-center">
-        <p className="text-3xl font-bold">Lasted Courses</p>
-        <button className="text-s font-medium">SEE ALL</button>
+        <p className="text-3xl font-bold">
+          Enroll Courses<span className="text-teal-400">.</span>
+        </p>
       </div>
       <div>
         {user.enrollment.length === 0 ? (

@@ -56,7 +56,7 @@ export const Profile = () => {
               variant="outlined"
               onClick={() => setComponent(0)}
             >
-              Enrolled Courses<span className="text-teal-400">.</span>
+              Enrolled Courses
             </Button>
             <Button
               className="transition ease-in duration 300 hover:scale-105"
